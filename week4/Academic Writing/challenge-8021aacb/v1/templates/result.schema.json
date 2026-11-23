@@ -1,0 +1,14 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED",
+  "status": "success | partial | failed",
+  "status_reason": "",
+  "task_summary": "诊断范围复述",
+  "diagnosis_report_path": "/app/output/diagnosis-report.md",
+  "edit_actions_path": "/app/output/edit-actions.json",
+  "n_diagnoses": 0,
+  "n_actions": 0,
+  "diagnoses_summary": [{ "location": "第4.1节 段2", "type": "论证链", "action": "ADD-EVIDENCE", "why": "『因此证明』无行内证据（claims.json #3）" }],
+  "gaps": [], "conflicts": [], "human_confirm": [], "uncertainties": [], "anomalies": [],
+  "coverage": { "diagnosis": "covered", "actions": "covered", "evidence": "covered" }
+}

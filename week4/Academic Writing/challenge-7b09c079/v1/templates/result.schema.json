@@ -1,0 +1,12 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "指令数/基线版本复述",
+  "revised_path": "/app/output/manuscript-revised.md",
+  "revisions_path": "/app/work/revisions.json",
+  "n_instructions": 0, "n_revisions": 0, "n_accepted_default": 0,
+  "instruction_map": [{ "instruction_no": 1, "layer": "措辞", "target": "原句摘录", "revision_ids": ["R003"] }],
+  "numbering_check": "PASS(--numbering)",
+  "gaps": [], "conflicts": [], "human_confirm": [], "uncertainties": [], "anomalies": [],
+  "coverage": { "revisions": "covered", "numbering": "PASS", "instructions": "covered" }
+}

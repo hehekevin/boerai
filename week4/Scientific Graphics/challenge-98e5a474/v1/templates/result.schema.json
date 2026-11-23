@@ -1,0 +1,12 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "图类型/版式/尺寸复述",
+  "svg_source_path": "/app/output/diagram.svg",
+  "exports": [{ "format": "png", "path": "/app/output/diagram.png", "dpi": 300, "rendered": true }],
+  "element_source_map": "/app/work/element-source-map.md",
+  "n_elements": 0, "n_relations": 0,
+  "legend_mapping": "颜色数=分类数 PASS",
+  "gaps": [], "conflicts": [], "human_confirm": [], "uncertainties": [], "anomalies": [],
+  "coverage": { "elements": "covered", "sources": "covered", "legend": "covered|PASS" }
+}

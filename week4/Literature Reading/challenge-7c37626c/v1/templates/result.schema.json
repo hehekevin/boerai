@@ -1,0 +1,15 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id；缺失分支案例 status=partial 且 insufficient_evidence=true。",
+  "case_id": "REQUIRED",
+  "status": "success | partial | failed",
+  "status_reason": "status != success 时必填；缺失分支写明缺哪些对象",
+  "insufficient_evidence": false,
+  "task_summary": "公式范围/要求复述",
+  "report_path": "/app/output/formula-report.md",
+  "formulas": [{ "id": "F001", "linear": "y = (a)/(b) x_{i}^{2}", "symbols": ["y","a","b","x"], "source": {"file": "artifacts/source-formulas.xml", "id": "F001"} }],
+  "vars": [{ "symbol": "a", "meaning": "截距", "class": "原文定义", "unit": null, "source": {"file": "paper.txt", "line": 12} }],
+  "derivations": [{ "step": "S1", "input": "式(1)", "op": "两边取对数", "output": "ln y = a + b x", "assumptions": "y>0" }],
+  "numeric_checks": [{ "expr": "(3.18-1.42)/1.42*100", "value": 123.9, "claimed": "124%", "verdict": "一致(舍入) | conflict" }],
+  "gaps": [], "conflicts": [], "human_confirm": [], "uncertainties": [], "anomalies": [],
+  "coverage": { "formulas": "covered|gap", "vars": "covered|gap", "derivations": "covered|gap", "numeric": "covered|gap|not_applicable(缺失分支)" }
+}
