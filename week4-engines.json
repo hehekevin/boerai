@@ -1,0 +1,73 @@
+{
+ "track-engines/literature-search": {
+  "search_audit.py": "查询规划/覆盖率/漏检五分类/去重 (0467f5db, a2909a72, baddb1f9)",
+  "screening_engine.py": "PICO协议/逐条筛选理由码/多源去重/计数闭合 (5b90f5e9)",
+  "patent_search.py": "专利号归一/同族合并/法律状态/风险分级 (ad3e9357)",
+  "iter_loop.py": "迭代台账/四类停止判据/回退点 (agent-7d0e6569, a2909a72)",
+  "multidb_engine.py": "跨库字段映射/合并裁决/降级披露 (5c918ff0)",
+  "crosslang_search.py": "双语术语矩阵/语种识别/匹配/回译队列 (802a7115)",
+  "question_decompose.py": "六槽拆解/查询组合/多轮提案/停止 (e7598a44)",
+  "file_search.py": "双路检索/章节定位/硬过滤/版本 (139745c7)",
+  "increment_tracker.py": "水位diff/去重键/时间窗/幂等重试 (1e85736f)",
+  "citation_network.py": "双向扩展/网络角色/路径解释/身份合并 (60a8202d)",
+  "ranking_engine.py": "显式加权排序/分层标签/冲突/解释 (2dd1f64c)"
+ },
+ "track-engines/literature-reading": {
+  "qa_engine.py": "段落索引/跨语言检索/脚手架/不确定性审计 (15c85674)",
+  "extraction_engine.py": "结论三档/条件/数值五要素/锚点 (105b70ee)",
+  "verify_engine.py": "论断拆解/支持度四档含跨语言 (e5e3be30)",
+  "compare_matrix.py": "比较矩阵/可比性/冲突归因 (95061011)",
+  "clean_engine.py": "规则库/单位换算/合并键/追溯 (f4bca185)",
+  "classify_engine.py": "分类/标签/命名/版本归档 (666fefb0)",
+  "content_extract.py": "正文识别/分段 (aac59bef)"
+ },
+ "zeros/复用资产": {
+  "math_audit.py": "MathML线性化/变量对账/safe_eval (7c37626c 已复制)",
+  "claim_evidence.py": "论断单元/引用对账 (b810ef56)",
+  "segment_source+build_glossary+verify_translation": "翻译三件套 (aac59bef 已复制)",
+  "review_ledger.py": "审稿意见台账/锚点回查 (2815a418 已复制)",
+  "structure_audit.py": "章节树/重复/论断 (8021aacb 已复制)",
+  "revision_tracker.py": "修订追踪/编号 (7b09c079 已复制)",
+  "svg_audit.py": "SVG审计 (98e5a474/graphical-abstract 已复制)"
+ },
+ "可复用于": {
+  "Academic Writing": [
+   "results-discussion(caca73b2)",
+   "structure_audit",
+   "revision_tracker",
+   "evidence-writing(b810ef56)",
+   "ranking_engine"
+  ],
+  "Research Library": [
+   "file_search",
+   "classify_engine",
+   "clean_engine",
+   "increment_tracker"
+  ],
+  "Academic Review": [
+   "review_ledger",
+   "verify_engine",
+   "claim_evidence"
+  ],
+  "Research Data Analysis": [
+   "clean_engine",
+   "multidb_engine",
+   "ranking_engine",
+   "math_audit"
+  ],
+  "Scientific Graphics": [
+   "svg_audit(已复制)",
+   "diagram-rules"
+  ],
+  "Experimental Design": [
+   "ranking_engine(方案比较)",
+   "iter_loop(优化迭代)",
+   "question_decompose"
+  ],
+  "Deep Research": [
+   "citation_network",
+   "compare_matrix",
+   "screening_engine"
+  ]
+ }
+}
