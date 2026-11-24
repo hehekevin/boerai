@@ -596,12 +596,12 @@
  "challenge-f4bca185": {
   "track": "literature-reading",
   "title": "文献数据清洗与标准化",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "clean_engine 四子命令自测通过（R1-R4改名/单位换算公式保留原值/显式合并键/追溯审计；修复load兼容）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-15c85674": {
