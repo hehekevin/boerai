@@ -13,12 +13,12 @@
  "challenge-1e85736f": {
   "track": "literature-search",
   "title": "最新文献发现与追踪",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "increment_tracker 四子命令自测通过（diff 1-1-0正确/幂等重试分类正确）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-5b90f5e9": {
