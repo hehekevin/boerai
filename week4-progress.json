@@ -772,12 +772,12 @@
  "challenge-105b70ee": {
   "track": "literature-reading",
   "title": "文献结论与数据提取",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "extraction_engine 四子命令自测通过（三档分类/数值五要素/missing_unit标记/锚点校验）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-f730fc37": {
