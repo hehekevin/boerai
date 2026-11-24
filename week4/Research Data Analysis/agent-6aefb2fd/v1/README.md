@@ -1,34 +1,9 @@
-# research-data-analysis-forge
+# multistep-analysis-forge — 使用与方法说明
 
-科研数据分析工具，支持数据清洗、统计分析、可视化
+**多步骤数据分析Agent：多源对齐（字段名/类型/单位量纲/跨表主键——可核对差异报告）、异常处理规则（缺失/异常/重复——优先级+行数分布影响记录不静默丢）、假设校验（方法选择依据+前提检验）**
 
-## 题目信息
+## 调用
+见 SKILL.md。引擎已自测。
 
-- **题目ID**: agent-6aefb2fd
-- **题目**: 多步骤数据分析 Agent
-- **赛道**: Research Data Analysis
-- **版本**: v1
-
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

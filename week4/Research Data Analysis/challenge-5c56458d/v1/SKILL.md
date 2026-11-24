@@ -1,58 +1,41 @@
 ---
-name: research-data-analysis-forge
-description: 科研数据分析工具，支持数据清洗、统计分析、可视化
-version: 1.0.0
-tags: [research-data-analysis, week4, challenge-5c56458d]
+name: db-query-forge
+description: 科研数据库查询与分析：连接（参数/权限/库表发现/快照版本；读写边界）、查询生成（可执行/时间范围/筛选/排序分页；报错定位修复）、结果抽取（稳定导出结构化；类型/单位/编码/缺失/重复）。
 ---
 
-# research-data-analysis-forge
+# db-query-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **库连接**：连接参数/权限范围/库表发现/数据快照版本；哪些可读写哪些只读显式（sw_agent --gates）。
+2. **询语句**：问题→可执行查询；时间范围/筛选/排序/分页；报错定位与修复（question_decompose 拆解+sw_agent --params）。
+3. **果抽取**：稳定导出结构化；字段类型/单位/编码/缺失/重复处理（clean_engine --normalize + multidb_engine --merge）。
+4. **脚本先行**。
 
-科研数据分析工具，支持数据清洗、统计分析、可视化
-
-## 核心能力
-
-- 数据处理、统计分析、图表生成、结果解释
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-5c56458d
-- 题目: 科研数据库查询与分析
-- 赛道: Research Data Analysis
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 权限与连接（0请求）：`python scripts/sw_agent.py --gates`
+### 阶段2 查询规划（0请求）：`python scripts/question_decompose.py --decompose`
+### 阶段3 结果标准化（0请求）：`python scripts/clean_engine.py --normalize`
+### 阶段4 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-data-analysis-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/db-query-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 只读限制 | 明确读写边界 |
+| 查询报错 | 定位+修复记录 |
+| 导出编码 | UTF-8容错 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：sw_agent.py, question_decompose.py, clean_engine.py, multidb_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Data Analysis赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

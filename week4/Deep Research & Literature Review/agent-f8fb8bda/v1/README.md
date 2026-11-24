@@ -1,34 +1,9 @@
-# deep-research-forge
+# deep-research-agent-forge — 使用与方法说明
 
-深度研究工具，支持文献综述、研究前沿分析、多文档整合
+**深度研究Agent：问题拆解成可分配子问题清单、检索规划（顺序/来源/停止/并行）、工具编排（检索/抓取/解析/抽取/计算留痕+失败重试+中间产物复用）**
 
-## 题目信息
+## 调用
+见 SKILL.md。引擎已自测。
 
-- **题目ID**: agent-f8fb8bda
-- **题目**: 深度研究 Agent
-- **赛道**: Deep Research & Literature Review
-- **版本**: v1
-
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

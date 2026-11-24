@@ -1,58 +1,41 @@
 ---
-name: research-data-analysis-forge
-description: 科研数据分析工具，支持数据清洗、统计分析、可视化
-version: 1.0.0
-tags: [research-data-analysis, week4, challenge-c0e1e220]
+name: stats-interpret-forge
+description: 统计分析与结果解读：描述统计（样本量/中心/离散/分位数/分布形态；缺失异常重复口径与单位）、推断统计（方法选择前提检验；多重比较/配对结构；避免误用）、效应量（匹配设计；口径方向置信区间）。
 ---
 
-# research-data-analysis-forge
+# stats-interpret-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **述统计**：样本量/中心/离散/分位数/形态正确；缺失/异常/重复处理；每个统计量口径与单位说明（stats_viz --descriptive）。
+2. **断统计**：按分布/样本量/设计选检验；先正态性/方差齐性；多重比较与配对处理；避免误用（stats_viz --testpick）。
+3. **效应量**：与设计匹配的效应量（标准化均值差/解释比例/关联强度）；口径/方向/置信区间（stats_viz --effectsize）。
+4. **脚本先行**。
 
-科研数据分析工具，支持数据清洗、统计分析、可视化
-
-## 核心能力
-
-- 数据处理、统计分析、图表生成、结果解释
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-c0e1e220
-- 题目: 统计分析与结果解读
-- 赛道: Research Data Analysis
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 描述（0请求）：`python scripts/stats_viz_engine.py --descriptive data.json`
+### 阶段2 选检验（0请求）：`--testpick`
+### 阶段3 效应量（0请求）：`--effectsize`
+### 阶段4 解读成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-data-analysis-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/stats-interpret-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 数据类型混列 | 类型过滤+标记 |
+| 前提不满足 | 非参数替代 |
+| 效应量缺CI | 标注缺失 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：stats_viz_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Data Analysis赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

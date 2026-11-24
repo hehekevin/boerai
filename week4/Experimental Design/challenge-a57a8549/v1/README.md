@@ -1,34 +1,9 @@
-# experimental-design-forge
+# exp-design-general-forge — 使用与方法说明
 
-实验设计工具，支持方案设计、参数优化、结果分析
+**实验方案设计总课题：按case路由（可行性/比较/生成优化/结果解释/参数优化），组合引擎**
 
-## 题目信息
+## 调用
+见 SKILL.md。引擎已自测。
 
-- **题目ID**: challenge-a57a8549
-- **题目**: 实验方案设计领域总课题
-- **赛道**: Experimental Design
-- **版本**: v1
-
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

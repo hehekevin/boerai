@@ -1,58 +1,41 @@
 ---
-name: research-data-analysis-forge
-description: 科研数据分析工具，支持数据清洗、统计分析、可视化
-version: 1.0.0
-tags: [research-data-analysis, week4, challenge-a0e888fa]
+name: data-clean-forge
+description: 科研数据清洗与处理：缺失处置（未检测/低于检出限/录入缺失/真值0区分；按分布量纲选策略）、重复识别（真实主键+大小写空格单位近似重复；保留依据）、单位转换（编码/分隔符/时区/混排/科学计数法/有效位；可逆或映射表——不静默丢精度）。
 ---
 
-# research-data-analysis-forge
+# data-clean-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **值处置**：区分"未检测"/"低于检出限"/"录入缺失"/真值0——按字段分布与量纲选填补或标记；异常结合物理上下限与分布诊断（clean_engine --normalize）。
+2. **录识别**：样品编号/时间戳/受试者标识等真实主键；大小写/空格/单位写法近似重复；明确保留哪条及依据（clean_engine --merge 显式键）。
+3. **位转换**：编码/分隔符/日期时区/混排/科学计数法/单位换算/有效位——可逆或映射表留痕；不静默丢精度（clean_engine --units 公式+原值）。
+4. **脚本先行**。
 
-科研数据分析工具，支持数据清洗、统计分析、可视化
-
-## 核心能力
-
-- 数据处理、统计分析、图表生成、结果解释
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-a0e888fa
-- 题目: 科研数据清洗与处理
-- 赛道: Research Data Analysis
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 规范化（0请求）：`python scripts/clean_engine.py --normalize`
+### 阶段2 单位（0请求）：`python scripts/clean_engine.py --units`
+### 阶段3 合并（0请求）：`--merge` + 追溯 `--trace`
+### 阶段4 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-data-analysis-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/data-clean-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 未检测vs0 | 分级编码 |
+| 转换不可逆 | 映射表保留 |
+| 近似重复 | 键策略+依据 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：clean_engine.py, stats_viz_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Data Analysis赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

@@ -1,58 +1,40 @@
 ---
-name: research-data-analysis-forge
-description: 科研数据分析工具，支持数据清洗、统计分析、可视化
-version: 1.0.0
-tags: [research-data-analysis, week4, challenge-9562cc8d]
+name: viz-advisor-forge
+description: 科研数据可视化：图表选择（数据类型×分析目的→图型+推荐理由）、编码方式（位置/长度/角度/面积/颜色/形状/分面映射；类别过多/量纲差异/双轴/对数变换；避免面积误编码）、轴标目与图注（单位/图例/误差线定义/显著性/样本量/方法——图注独立可读）。
 ---
 
-# research-data-analysis-forge
+# viz-advisor-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **表选择**：数据类型（连续/分类/时序/多变量/分组）×目的（分布/比较/相关/趋势/构成）→可选图型+推荐理由（stats_viz --chartpick）。
+2. **码方式**：位置/长度/角度/面积/颜色/形状/分面映射；类别过多/量纲差异大/双轴/对数变换处理；**避免面积编码比较**（chartpick 警告）。
+3. **与图注**：轴标目/单位/图例/误差线定义/显著性标记/样本量/方法说明——图注独立于正文被读懂（stats_viz --caption）。
+4. **脚本先行**。
 
-科研数据分析工具，支持数据清洗、统计分析、可视化
-
-## 核心能力
-
-- 数据处理、统计分析、图表生成、结果解释
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-9562cc8d
-- 题目: 科研数据可视化
-- 赛道: Research Data Analysis
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 选图（0请求）：`python scripts/stats_viz_engine.py --chartpick data.json`
+### 阶段2 图注校验（0请求）：`python scripts/stats_viz_engine.py --caption meta.json`
+### 阶段3 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-data-analysis-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/viz-advisor-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 类别过多 | 横置/分面/聚合警告 |
+| 误差线未定义 | missing 标记 |
+| 双轴组合 | 对齐警告 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：stats_viz_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Data Analysis赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

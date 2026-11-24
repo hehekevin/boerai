@@ -1,58 +1,36 @@
 ---
-name: research-data-analysis-forge
-description: 科研数据分析工具，支持数据清洗、统计分析、可视化
-version: 1.0.0
-tags: [research-data-analysis, week4, challenge-95620c56]
+name: analysis-general-forge
+description: 科研数据分析总课题：按case路由（多步骤Agent/统计解读/数据库查询/可视化/代码/清洗），组合引擎。
 ---
 
-# research-data-analysis-forge
+# analysis-general-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **路由**：Agent→multistep；统计→stats-interpret；数据库→db-query；可视化→viz-advisor；代码→codegen；清洗→data-clean。理由记录。
+2. **子场景独立复跑**。3. **脚本先行**。
 
-科研数据分析工具，支持数据清洗、统计分析、可视化
-
-## 核心能力
-
-- 数据处理、统计分析、图表生成、结果解释
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-95620c56
-- 题目: 科研数据分析领域总课题
-- 赛道: Research Data Analysis
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 路由（1请求）
+### 阶段1-N 执行
+### 阶段末 成文
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-data-analysis-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/analysis-general-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 混合 | 串联分别报告 |
+| 不适用 | anomalies |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：multidb_engine.py, clean_engine.py, stats_viz_engine.py, sw_agent.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Data Analysis赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

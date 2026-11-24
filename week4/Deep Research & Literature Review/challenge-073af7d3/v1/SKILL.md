@@ -1,58 +1,41 @@
 ---
-name: deep-research-forge
-description: 深度研究工具，支持文献综述、研究前沿分析、多文档整合
-version: 1.0.0
-tags: [deep-research, week4, challenge-073af7d3]
+name: trend-analysis-forge
+description: 研究前沿与趋势分析：时间趋势（产出量/主题占比/增长速率；离散波动vs真实拐点；数据口径影响声明）、主题演化（出现/合并/分裂/衰退；术语漂移/同名异义；阶段划分依据）、代表性工作（入选口径+覆盖范围；避免纯被引排序漏长尾首创）。
 ---
 
-# deep-research-forge
+# trend-analysis-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **间趋势**：按年份/时间窗统计产出量、主题占比、增长速率；区分离散波动与真实拐点；数据口径（在线/见刊/预印本）对结论的影响声明（increment_tracker 时间窗+stats_viz descriptive）。
+2. **题演化**：主题词/子领域出现/合并/分裂/衰退；术语漂移与同名异义识别；阶段划分及其依据（crosslang 术语矩阵+citation_network 网络）。
+3. **性工作**：各阶段代表性文献入选口径与覆盖范围声明；不只总被引排序——长尾方法首创不遗漏（ranking_engine 显式权重）。
+4. **脚本先行**。
 
-深度研究工具，支持文献综述、研究前沿分析、多文档整合
-
-## 核心能力
-
-- 文献综述、研究趋势、多源整合、深度分析
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-073af7d3
-- 题目: 研究前沿与趋势分析
-- 赛道: Deep Research & Literature Review
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 时间统计（0请求）：`python scripts/stats_viz_engine.py --descriptive`
+### 阶段2 主题演化（0请求）：`python scripts/crosslang_search.py --termmatrix` + citation_network --network
+### 阶段3 代表性工作（0请求）：`python scripts/ranking_engine.py --score/--label`
+### 阶段4 成文（2-3请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 deep-research-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/trend-analysis-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 口径混杂 | 分口径统计+影响声明 |
+| 术语漂移 | 别名归并+漂移标注 |
+| 拐点误判 | 波动vs拐点判定依据声明 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：stats_viz_engine.py, crosslang_search.py, citation_network.py, ranking_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Deep Research & Literature Review赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

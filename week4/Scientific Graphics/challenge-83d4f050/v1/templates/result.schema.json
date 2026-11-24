@@ -1,0 +1,12 @@
+{
+ "_comment": "交付时合并 output_contract + case_id。",
+ "case_id": "REQUIRED",
+ "status": "success | partial | failed",
+ "status_reason": "",
+ "task_summary": "",
+ "report_path": "/app/output/bio-pathway-forge.md",
+ "gaps": [],
+ "conflicts": [],
+ "uncertainties": [],
+ "anomalies": []
+}

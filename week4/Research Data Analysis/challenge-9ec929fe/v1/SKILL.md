@@ -1,58 +1,41 @@
 ---
-name: research-data-analysis-forge
-description: 科研数据分析工具，支持数据清洗、统计分析、可视化
-version: 1.0.0
-tags: [research-data-analysis, week4, challenge-9ec929fe]
+name: codegen-forge
+description: 科研代码生成与执行：代码生成（数据字典+任务→清洗统计可视化代码；字段对齐/口径显式/缺失异常策略可解释——不堆砌）、环境配置（依赖声明/版本锁定/包冲突/隔离；跨机器可装可跑；降级替代）、执行调试（真实数据跑通；路径/编码/类型/内存/超时；命令行日志退出状态留痕）。
 ---
 
-# research-data-analysis-forge
+# codegen-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **码生成**：数据字典+任务描述→清洗/统计/可视化代码；字段对齐/口径显式/缺失异常策略可解释。
+2. **境配置**：依赖声明/版本锁定/包冲突/环境隔离；同一代码跨机器可安装可启动；降级替代说明。
+3. **行调试**：真实数据跑通；路径/编码/类型/内存/超时处理；每次执行命令行/日志/退出状态留痕（sw_agent --iocheck）。
+4. **脚本先行**。
 
-科研数据分析工具，支持数据清洗、统计分析、可视化
-
-## 核心能力
-
-- 数据处理、统计分析、图表生成、结果解释
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-9ec929fe
-- 题目: 科研代码生成与执行
-- 赛道: Research Data Analysis
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 代码生成（1-2请求）：按数据字典生成（口径显式）
+### 阶段2 环境声明（0请求）：requirements+版本锁定模板
+### 阶段3 执行审计（0请求）：`python scripts/sw_agent.py --iocheck io.json`
+### 阶段4 成文（1请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-data-analysis-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/codegen-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 字段缺失 | 显式处理策略不默认 |
+| 依赖冲突 | 版本锁定+替代方案 |
+| 超时 | 分块/采样降级 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：sw_agent.py, clean_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Data Analysis赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

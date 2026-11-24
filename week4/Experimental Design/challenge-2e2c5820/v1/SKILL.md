@@ -1,58 +1,41 @@
 ---
-name: experimental-design-forge
-description: 实验设计工具，支持方案设计、参数优化、结果分析
-version: 1.0.0
-tags: [experimental-design, week4, challenge-2e2c5820]
+name: feasibility-check-forge
+description: 实验方案可行性评估：检查项体系（设备/材料/时间/样本/伦理安全/参数范围/风险异常七项可勾选判定；依据来自SOP/规格书/审批）、条件核验（设备型号精度附件耗材vs现有清单——已具备/可外协/需采购/不具备）、时间估算（设备占用/人工/等待/检测周转可解释；样本来源保存条件伦理进度核对）。
 ---
 
-# experimental-design-forge
+# feasibility-check-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **项体系**：设备/材料/时间/样本/伦理与安全/参数范围/风险与异常拆成可勾选可判定检查项；每项判定依据来自SOP/规格书/审批（plan_engine --checklist）。
+2. **件核验**：设备型号/精度/附件/耗材规格vs现有清单——四态区分（已具备/可外协/需采购/不具备）（plan_engine --resources）。
+3. **本估算**：步骤拆设备占用/人工/等待/检测周转——可解释估算；样本来源/数量/保存条件/伦理审批进度核对（plan_engine --time）。
+4. **脚本先行**。
 
-实验设计工具，支持方案设计、参数优化、结果分析
-
-## 核心能力
-
-- 实验规划、参数优化、结果解释、异常分析
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-2e2c5820
-- 题目: 实验方案可行性评估
-- 赛道: Experimental Design
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 检查项（0请求）：`python scripts/plan_engine.py --checklist proposal.json`
+### 阶段2 资源核验（0请求）：`--resources proposal.json inventory.json`
+### 阶段3 时间估算（0请求）：`--time estimate.json`
+### 阶段4 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 experimental-design-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/feasibility-check-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 四态判定 | 不具备→明确提示 |
+| 估算缺依据 | 标记待确认 |
+| 伦理未批 | 阻断项提示 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：plan_engine.py, novelty_matrix.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Experimental Design赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

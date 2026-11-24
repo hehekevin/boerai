@@ -1,58 +1,41 @@
 ---
-name: experimental-design-forge
-description: 实验设计工具，支持方案设计、参数优化、结果分析
-version: 1.0.0
-tags: [experimental-design, week4, challenge-8354c69a]
+name: anomaly-triage-forge
+description: 实验结果解释与异常分析：结果趋势（走势/拐点/平台期/偏离幅度；依据区间对照拟合方式）、异常点定位（样本/批次/通道/孔位/时间维度；程度/阈值/与对照重复偏离关系）、原因候选（按证据强度排序；支持证据/排除证据；相关误当因果风险）。
 ---
 
-# experimental-design-forge
+# anomaly-triage-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **果趋势**：单/多指标走势/拐点/平台期/偏离幅度判断；说明依据的区间/对照/拟合方式（stats_viz --descriptive + plan_engine --anomaly）。
+2. **异常点**：样本/批次/通道/孔位/时间点维度定位；异常程度/判定阈值/与对照或重复的偏离关系（stats_viz --anomaly）。
+3. **能原因**：按证据强度排序的原因候选清单；每条标支持证据/排除证据；把相关误当因果的风险标注（stats_viz --causes）。
+4. **脚本先行**。
 
-实验设计工具，支持方案设计、参数优化、结果分析
-
-## 核心能力
-
-- 实验规划、参数优化、结果解释、异常分析
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-8354c69a
-- 题目: 实验结果解释与异常分析
-- 赛道: Experimental Design
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 趋势（0请求）：`python scripts/stats_viz_engine.py --descriptive data.json`
+### 阶段2 异常定位（0请求）：`--anomaly data.json`
+### 阶段3 原因候选（0请求+1-2请求补充证据）：`--causes data.json`
+### 阶段4 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 experimental-design-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/anomaly-triage-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 阈值缺失 | 判定依据声明 |
+| 原因无证据 | 弱证据排序降级 |
+| 相关因果 | 风险显式 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：stats_viz_engine.py, plan_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Experimental Design赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

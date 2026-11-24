@@ -1,58 +1,41 @@
 ---
-name: academic-review-forge
-description: 学术审查工具，支持论文评审、质量评估、规范检查
-version: 1.0.0
-tags: [academic-review, week4, challenge-de9f0708]
+name: compliance-check-forge
+description: 学术规范与合规检查：学术诚信（图像复用/重复发表/署名/利益冲突/基金一致——判断依据非仅提示）、引用规范（文献真实存在/元数据一致/论断对应；引而不证/张冠李戴/格式不统一）、数据合规（可识别个人信息/受限数据/伦理审批依据；脱敏改写建议）。
 ---
 
-# academic-review-forge
+# compliance-check-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **术诚信**：数据与图像复用/重复发表/不当署名/利益冲突缺失/致谢基金不一致——给出判断依据（review_engine --integrity）。
+2. **用规范**：被引文献真实存在/元数据与原文一致/论断与文献一一对应；识别引而不证/张冠李戴/格式不统一（claim_evidence --checkref + review_engine --cites）。
+3. **据合规**：可识别个人信息/受限数据/未公开数据识别；授权或伦理审批依据判断；脱敏与改写建议（review_engine --datacompliance）。
+4. **脚本先行**。
 
-学术审查工具，支持论文评审、质量评估、规范检查
-
-## 核心能力
-
-- 同行评审、质量评估、学术规范、事实核验
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-de9f0708
-- 题目: 学术规范与合规检查
-- 赛道: Academic Review
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 诚信（0请求）：`python scripts/review_engine.py --integrity`
+### 阶段2 引用规范（0请求）：`python scripts/review_engine.py --cites doc.json refs.json` + claim_evidence --checkref
+### 阶段3 数据合规（0请求）：`python scripts/review_engine.py --datacompliance`
+### 阶段4 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 academic-review-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/compliance-check-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 引文缺失 | cited_but_no_ref 清单 |
+| PII发现 | 脱敏建议+位置 |
+| 依据不明 | 判断依据声明 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：review_engine.py, claim_evidence.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Academic Review赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

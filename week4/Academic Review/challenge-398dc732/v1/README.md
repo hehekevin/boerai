@@ -1,34 +1,9 @@
-# academic-review-forge
+# academic-review-general-forge — 使用与方法说明
 
-学术审查工具，支持论文评审、质量评估、规范检查
+**学术审查总课题：按case路由（逻辑/质量/方法统计/回复修改/质量评价/引用核验/规范合规），组合引擎**
 
-## 题目信息
+## 调用
+见 SKILL.md。引擎已自测。
 
-- **题目ID**: challenge-398dc732
-- **题目**: 学术审查领域总课题
-- **赛道**: Academic Review
-- **版本**: v1
-
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。
