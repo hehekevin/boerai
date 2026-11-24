@@ -35,12 +35,12 @@
  "challenge-60a8202d": {
   "track": "literature-search",
   "title": "引文追踪与关联文献发现",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "citation_network 四子命令自测通过（trace 3节点/path找到/merge preprint_vs_journal；修复path邻接表构造bug）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-ad3e9357": {
@@ -222,12 +222,12 @@
  "challenge-2dd1f64c": {
   "track": "literature-search",
   "title": "文献筛选与智能排序",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "ranking_engine 四子命令自测通过（排序/标签/冲突识别/解释置信度）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-a2909a72": {
