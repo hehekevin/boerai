@@ -1,0 +1,50 @@
+{
+ "challenge-98e5a474": {
+  "track": "scientific-graphics",
+  "v": "v2",
+  "selftest": "5/5 examples cleanly; compliance PASS",
+  "attempt_id": "104638",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Scientific%20Graphics/challenge-98e5a474/v2"
+ },
+ "challenge-1bd90d8a": {
+  "track": "scientific-graphics",
+  "v": "v2",
+  "selftest": "5/5 examples cleanly; compliance PASS",
+  "attempt_id": "104640",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Scientific%20Graphics/challenge-1bd90d8a/v2"
+ },
+ "challenge-83d4f050": {
+  "track": "scientific-graphics",
+  "v": "v2",
+  "selftest": "5/5 examples cleanly; compliance PASS",
+  "attempt_id": "104641",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Scientific%20Graphics/challenge-83d4f050/v2"
+ },
+ "challenge-9034312d": {
+  "track": "scientific-graphics",
+  "v": "v2",
+  "selftest": "5/5 examples cleanly; compliance PASS",
+  "attempt_id": "104643",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Scientific%20Graphics/challenge-9034312d/v2"
+ },
+ "graphical-abstract-7030fff2": {
+  "track": "scientific-graphics",
+  "v": "v2",
+  "selftest": "5/5 examples cleanly; compliance PASS",
+  "attempt_id": "104644",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Scientific%20Graphics/graphical-abstract-7030fff2/v2"
+ },
+ "challenge-38e0cc33": {
+  "track": "scientific-graphics",
+  "v": "v2",
+  "selftest": "5/5 examples cleanly; compliance PASS",
+  "attempt_id": "104645",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Scientific%20Graphics/challenge-38e0cc33/v2"
+ }
+}
