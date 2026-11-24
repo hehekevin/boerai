@@ -266,12 +266,12 @@
  "challenge-666fefb0": {
   "track": "literature-reading",
   "title": "文献与资料自动分类",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "classify_engine 四子命令自测通过（分类依据/标签粒度/命名降级/版本归档不删除；修复set类型bug）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-8354c69a": {
