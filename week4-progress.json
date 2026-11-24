@@ -607,12 +607,12 @@
  "challenge-15c85674": {
   "track": "literature-reading",
   "title": "文献智能问答",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "qa_engine 四子命令自测通过（检索命中Results/scaffold子问拆分/uncertainty五类审计；修复跨语言zh词典原文匹配bug+正则bug）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-83d4f050": {
