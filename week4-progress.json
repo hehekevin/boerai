@@ -112,12 +112,12 @@
  "challenge-e7598a44": {
   "track": "literature-search",
   "title": "科研问题驱动检索",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "question_decompose 四子命令自测通过（拆解6槽准确/组合模板正确/修正中文分词后要素提取准确）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-e97137c9": {
