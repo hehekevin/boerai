@@ -68,12 +68,12 @@
  "agent-7d0e6569": {
   "track": "literature-search",
   "title": "文献检索 Agent 与自动迭代",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "iter_loop 三子命令自测通过（ledger/stop/rollback），停止判据计算正确",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-5c918ff0": {
