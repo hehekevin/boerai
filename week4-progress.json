@@ -90,12 +90,12 @@
  "challenge-802a7115": {
   "track": "literature-search",
   "title": "跨语言文献检索",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "crosslang_search 四子命令自测通过（矩阵/识别3条/匹配3-3/复核队列1-3）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-00e37955": {
