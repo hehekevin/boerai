@@ -728,12 +728,12 @@
  "challenge-e5e3be30": {
   "track": "literature-reading",
   "title": "文献证据溯源与事实核验",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "verify_engine 自测通过（decompose 4类型识别/support四档判定含跨语言扩展；复用claim_evidence对账）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "ppt-9508e25f": {
