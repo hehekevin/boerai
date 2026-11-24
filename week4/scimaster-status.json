@@ -46,5 +46,109 @@
   "attempt_id": "104645",
   "submitted": "2026-11-24",
   "github": "https://github.com/hehekevin/boerai/tree/main/week4/Scientific%20Graphics/challenge-38e0cc33/v2"
+ },
+ "challenge-0467f5db": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104692",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-0467f5db/v2"
+ },
+ "challenge-1e85736f": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104693",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-1e85736f/v2"
+ },
+ "challenge-2dd1f64c": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104694",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-2dd1f64c/v2"
+ },
+ "challenge-5b90f5e9": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104695",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-5b90f5e9/v2"
+ },
+ "challenge-5c918ff0": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104696",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-5c918ff0/v2"
+ },
+ "challenge-60a8202d": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104697",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-60a8202d/v2"
+ },
+ "challenge-802a7115": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104701",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-802a7115/v2"
+ },
+ "challenge-a2909a72": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104702",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-a2909a72/v2"
+ },
+ "challenge-ad3e9357": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104703",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-ad3e9357/v2"
+ },
+ "challenge-baddb1f9": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104704",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-baddb1f9/v2"
+ },
+ "challenge-e7598a44": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104705",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-e7598a44/v2"
+ },
+ "challenge-139745c7": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104706",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/challenge-139745c7/v2"
+ },
+ "agent-7d0e6569": {
+  "track": "literature-search",
+  "v": "v2",
+  "selftest": "11/11; compliance PASS",
+  "attempt_id": "104707",
+  "submitted": "2026-11-24",
+  "github": "https://github.com/hehekevin/boerai/tree/main/week4/Literature%20Search/agent-7d0e6569/v2"
  }
 }
