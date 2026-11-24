@@ -8,7 +8,7 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105156"
  },
  "challenge-1e85736f": {
   "track": "literature-search",
@@ -19,7 +19,7 @@
   "self_tested": true,
   "self_test_report": "increment_tracker 四子命令自测通过（diff 1-1-0正确/幂等重试分类正确）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105180"
  },
  "challenge-5b90f5e9": {
   "track": "literature-search",
@@ -30,7 +30,7 @@
   "self_tested": true,
   "self_test_report": "引擎自测通过（screening/patent）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105181"
  },
  "challenge-60a8202d": {
   "track": "literature-search",
@@ -41,7 +41,7 @@
   "self_tested": true,
   "self_test_report": "citation_network 四子命令自测通过（trace 3节点/path找到/merge preprint_vs_journal；修复path邻接表构造bug）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105182"
  },
  "challenge-ad3e9357": {
   "track": "literature-search",
@@ -52,7 +52,7 @@
   "self_tested": true,
   "self_test_report": "引擎自测通过（screening/patent）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105183"
  },
  "challenge-bace1c46": {
   "track": "academic-review",
@@ -63,7 +63,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105184"
  },
  "agent-7d0e6569": {
   "track": "literature-search",
@@ -74,7 +74,7 @@
   "self_tested": true,
   "self_test_report": "iter_loop 三子命令自测通过（ledger/stop/rollback），停止判据计算正确",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105185"
  },
  "challenge-5c918ff0": {
   "track": "literature-search",
@@ -85,7 +85,7 @@
   "self_tested": true,
   "self_test_report": "multidb_engine --demo 自测通过（合并/冲突/缺失处理正确）；已知限制：大小写差异误计冲突（规则文档已声明）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105186"
  },
  "challenge-802a7115": {
   "track": "literature-search",
@@ -96,7 +96,7 @@
   "self_tested": true,
   "self_test_report": "crosslang_search 四子命令自测通过（矩阵/识别3条/匹配3-3/复核队列1-3）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105187"
  },
  "challenge-00e37955": {
   "track": "research-library",
@@ -107,7 +107,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105188"
  },
  "challenge-e7598a44": {
   "track": "literature-search",
@@ -118,7 +118,7 @@
   "self_tested": true,
   "self_test_report": "question_decompose 四子命令自测通过（拆解6槽准确/组合模板正确/修正中文分词后要素提取准确）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105189"
  },
  "challenge-e97137c9": {
   "track": "deep-research",
@@ -129,7 +129,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105190"
  },
  "agent-f8fb8bda": {
   "track": "deep-research",
@@ -140,7 +140,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105191"
  },
  "challenge-80dd5ddc": {
   "track": "research-library",
@@ -151,7 +151,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105192"
  },
  "challenge-baddb1f9": {
   "track": "literature-search",
@@ -162,7 +162,7 @@
   "self_tested": true,
   "self_test_report": "三子引擎均已单独自测通过；路由规则基于题面四步保底设计",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105193"
  },
  "challenge-2bfd9194": {
   "track": "research-library",
@@ -173,7 +173,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105194"
  },
  "challenge-51977f9b": {
   "track": "deep-research",
@@ -184,7 +184,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105195"
  },
  "challenge-041f89c5": {
   "track": "literature-reading",
@@ -195,7 +195,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105196"
  },
  "challenge-073af7d3": {
   "track": "deep-research",
@@ -206,7 +206,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105197"
  },
  "challenge-27d794ce": {
   "track": "deep-research",
@@ -217,7 +217,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105199"
  },
  "challenge-2dd1f64c": {
   "track": "literature-search",
@@ -228,7 +228,7 @@
   "self_tested": true,
   "self_test_report": "ranking_engine 四子命令自测通过（排序/标签/冲突识别/解释置信度）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105200"
  },
  "challenge-a2909a72": {
   "track": "literature-search",
@@ -239,7 +239,7 @@
   "self_tested": true,
   "self_test_report": "search_audit+iter_loop 引擎均自测通过；按四方向定制 SKILL.md",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105201"
  },
  "challenge-c050aaed": {
   "track": "literature-reading",
@@ -250,7 +250,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105202"
  },
  "challenge-139745c7": {
   "track": "literature-search",
@@ -261,7 +261,7 @@
   "self_tested": true,
   "self_test_report": "file_search 四子命令自测通过（find排序/locate章节回链正确/filter硬约束/versions哈希识别）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105203"
  },
  "challenge-666fefb0": {
   "track": "literature-reading",
@@ -272,7 +272,7 @@
   "self_tested": true,
   "self_test_report": "classify_engine 四子命令自测通过（分类依据/标签粒度/命名降级/版本归档不删除；修复set类型bug）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105204"
  },
  "challenge-8354c69a": {
   "track": "experimental-design",
@@ -283,7 +283,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105205"
  },
  "challenge-ec02b694": {
   "track": "experimental-design",
@@ -294,7 +294,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105206"
  },
  "challenge-2e2c5820": {
   "track": "experimental-design",
@@ -305,7 +305,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105207"
  },
  "challenge-7be76e91": {
   "track": "experimental-design",
@@ -316,7 +316,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105208"
  },
  "challenge-cf1995b5": {
   "track": "experimental-design",
@@ -327,7 +327,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105209"
  },
  "challenge-a57a8549": {
   "track": "experimental-design",
@@ -338,7 +338,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105210"
  },
  "agent-d1ab67e5": {
   "track": "research-library",
@@ -349,7 +349,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105211"
  },
  "agent-6aefb2fd": {
   "track": "research-data-analysis",
@@ -360,7 +360,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105212"
  },
  "challenge-5c56458d": {
   "track": "research-data-analysis",
@@ -371,7 +371,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105213"
  },
  "challenge-95620c56": {
   "track": "research-data-analysis",
@@ -382,7 +382,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105214"
  },
  "challenge-9562cc8d": {
   "track": "research-data-analysis",
@@ -393,7 +393,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105216"
  },
  "challenge-9ec929fe": {
   "track": "research-data-analysis",
@@ -404,7 +404,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105217"
  },
  "challenge-a0e888fa": {
   "track": "research-data-analysis",
@@ -415,7 +415,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105218"
  },
  "challenge-c0e1e220": {
   "track": "research-data-analysis",
@@ -426,7 +426,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105219"
  },
  "challenge-5047f57f": {
   "track": "research-library",
@@ -437,7 +437,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105220"
  },
  "challenge-912f63bd": {
   "track": "research-library",
@@ -448,7 +448,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105222"
  },
  "zotero-ai-a207356c": {
   "track": "research-library",
@@ -459,7 +459,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105223"
  },
  "challenge-aac59bef": {
   "track": "literature-reading",
@@ -470,7 +470,7 @@
   "self_tested": true,
   "self_test_report": "content_extract 自测通过（3块正文/导航广告参考文献切除）；复用segment/glossary/verify三引擎",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105224"
  },
  "challenge-71c94fb7": {
   "track": "research-library",
@@ -481,7 +481,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105225"
  },
  "challenge-16d4414d": {
   "track": "academic-review",
@@ -492,7 +492,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105226"
  },
  "challenge-cbe96f01": {
   "track": "academic-review",
@@ -503,7 +503,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105227"
  },
  "challenge-de9f0708": {
   "track": "academic-review",
@@ -514,7 +514,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105228"
  },
  "challenge-20870c35": {
   "track": "academic-writing",
@@ -525,7 +525,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105229"
  },
  "challenge-0999879e": {
   "track": "academic-review",
@@ -536,7 +536,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105230"
  },
  "challenge-398dc732": {
   "track": "academic-review",
@@ -547,7 +547,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105231"
  },
  "challenge-9e7302fd": {
   "track": "academic-review",
@@ -558,7 +558,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105232"
  },
  "ppt-6ad93034": {
   "track": "academic-writing",
@@ -569,7 +569,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105233"
  },
  "ppt-710fbc72": {
   "track": "academic-writing",
@@ -580,7 +580,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105234"
  },
  "challenge-8021aacb": {
   "track": "academic-writing",
@@ -591,7 +591,7 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "101463"
  },
  "challenge-f4bca185": {
   "track": "literature-reading",
@@ -602,7 +602,7 @@
   "self_tested": true,
   "self_test_report": "clean_engine 四子命令自测通过（R1-R4改名/单位换算公式保留原值/显式合并键/追溯审计；修复load兼容）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105235"
  },
  "challenge-15c85674": {
   "track": "literature-reading",
@@ -613,7 +613,7 @@
   "self_tested": true,
   "self_test_report": "qa_engine 四子命令自测通过（检索命中Results/scaffold子问拆分/uncertainty五类审计；修复跨语言zh词典原文匹配bug+正则bug）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105236"
  },
  "challenge-83d4f050": {
   "track": "scientific-graphics",
@@ -624,7 +624,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105238"
  },
  "challenge-95061011": {
   "track": "literature-reading",
@@ -635,7 +635,7 @@
   "self_tested": true,
   "self_test_report": "compare_matrix 三子命令自测通过（矩阵/可比性subset判定/冲突归因候选）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105239"
  },
  "challenge-98e5a474": {
   "track": "scientific-graphics",
@@ -646,7 +646,7 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "101464"
  },
  "graphical-abstract-7030fff2": {
   "track": "scientific-graphics",
@@ -657,7 +657,7 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105240"
  },
  "benchmark-a1d81ca4": {
   "track": "literature-reading",
@@ -668,7 +668,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105241"
  },
  "challenge-1bd90d8a": {
   "track": "scientific-graphics",
@@ -679,7 +679,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105242"
  },
  "challenge-38e0cc33": {
   "track": "scientific-graphics",
@@ -690,7 +690,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105243"
  },
  "challenge-7c37626c": {
   "track": "literature-reading",
@@ -701,7 +701,7 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "101465"
  },
  "challenge-9034312d": {
   "track": "scientific-graphics",
@@ -712,7 +712,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105246"
  },
  "challenge-96263d10": {
   "track": "academic-writing",
@@ -723,7 +723,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105247"
  },
  "challenge-e5e3be30": {
   "track": "literature-reading",
@@ -734,7 +734,7 @@
   "self_tested": true,
   "self_test_report": "verify_engine 自测通过（decompose 4类型识别/support四档判定含跨语言扩展；复用claim_evidence对账）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105248"
  },
  "ppt-9508e25f": {
   "track": "academic-writing",
@@ -745,7 +745,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105249"
  },
  "ppt-c7b80f0d": {
   "track": "academic-writing",
@@ -756,7 +756,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105250"
  },
  "challenge-2815a418": {
   "track": "academic-review",
@@ -767,7 +767,7 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "101466"
  },
  "challenge-105b70ee": {
   "track": "literature-reading",
@@ -778,7 +778,7 @@
   "self_tested": true,
   "self_test_report": "extraction_engine 四子命令自测通过（三档分类/数值五要素/missing_unit标记/锚点校验）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105251"
  },
  "challenge-f730fc37": {
   "track": "literature-reading",
@@ -789,7 +789,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105252"
  },
  "challenge-a2c6f23b": {
   "track": "academic-writing",
@@ -800,7 +800,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105253"
  },
  "benchmark-d57ad64a": {
   "track": "academic-writing",
@@ -811,7 +811,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105254"
  },
  "challenge-a028c71c": {
   "track": "literature-reading",
@@ -822,7 +822,7 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105255"
  },
  "challenge-7b09c079": {
   "track": "academic-writing",
@@ -833,7 +833,7 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "101467"
  },
  "challenge-32c0210d": {
   "track": "academic-writing",
@@ -844,6 +844,6 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": ""
+  "submitted_attempt": "105256"
  }
 }
