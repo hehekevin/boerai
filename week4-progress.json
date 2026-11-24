@@ -156,12 +156,12 @@
  "challenge-baddb1f9": {
   "track": "literature-search",
   "title": "文献检索领域总课题",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "三子引擎均已单独自测通过；路由规则基于题面四步保底设计",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-2bfd9194": {
@@ -233,12 +233,12 @@
  "challenge-a2909a72": {
   "track": "literature-search",
   "title": "学术文献检索",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "search_audit+iter_loop 引擎均自测通过；按四方向定制 SKILL.md",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-c050aaed": {
