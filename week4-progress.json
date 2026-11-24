@@ -464,12 +464,12 @@
  "challenge-aac59bef": {
   "track": "literature-reading",
   "title": "网页文献阅读与翻译",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "content_extract 自测通过（3块正文/导航广告参考文献切除）；复用segment/glossary/verify三引擎",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-71c94fb7": {
