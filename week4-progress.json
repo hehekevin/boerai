@@ -189,12 +189,12 @@
  "challenge-041f89c5": {
   "track": "literature-reading",
   "title": "科研选题与创新性评估",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-073af7d3": {
@@ -244,12 +244,12 @@
  "challenge-c050aaed": {
   "track": "literature-reading",
   "title": "阅读批注与知识沉淀",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-139745c7": {
@@ -662,12 +662,12 @@
  "benchmark-a1d81ca4": {
   "track": "literature-reading",
   "title": "文献阅读 Benchmark 与评测工具",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-1bd90d8a": {
@@ -783,12 +783,12 @@
  "challenge-f730fc37": {
   "track": "literature-reading",
   "title": "阅读客户端",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-a2c6f23b": {
@@ -816,12 +816,12 @@
  "challenge-a028c71c": {
   "track": "literature-reading",
   "title": "文献阅读领域总课题",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "引擎子命令本地自测通过（JSON输出合法/判定逻辑正确）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-7b09c079": {
