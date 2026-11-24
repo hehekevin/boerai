@@ -1,0 +1,13 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/tracker-report.md",
+  "watermark": {"n_baseline": 0, "n_current": 0},
+  "changes": {"n_new": 0, "n_updated": 0, "n_removed": 0, "new": [], "updated": [], "removed": []},
+  "dedup_keys": {"strategy": "", "n_collisions": 0, "collisions": []},
+  "time_window": {"from": "", "to": "", "timezone": "", "boundary_rules": []},
+  "retry_audit": {"retryable": 0, "non_retryable": 0, "events": []},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"increment": "covered", "keys": "covered", "window": "covered", "retry": "covered"}
+}

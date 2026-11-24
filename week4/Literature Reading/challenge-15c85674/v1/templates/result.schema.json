@@ -1,0 +1,12 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/qa-report.md",
+  "answers": [{"qid": "", "question": "", "answer": "", "semantic_type": "实测|作者解释|推断",
+               "anchors": [{"paper_id": "", "para_no": 0, "quote": ""}],
+               "conditions": [], "subq_coverage": []}],
+  "uncertainty_audit": {"n_clean": 0, "audit": []},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"answers": "covered", "anchors": "covered", "conditions": "covered", "uncertainty": "PASS"}
+}

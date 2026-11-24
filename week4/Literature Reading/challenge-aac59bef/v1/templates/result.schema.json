@@ -1,0 +1,13 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/webread-report.md",
+  "crawl_scope": {"page_type": "", "limits": [], "failure_conditions": []},
+  "content": {"n_body_blocks": 0, "structure": []},
+  "segments": {"n_paragraphs": 0, "paragraphs": []},
+  "translation": {"bilingual": [], "formula_preserved": [], "glossary": ""},
+  "consistency_check": {"verdict": "PASS|FAIL", "issues": []},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"content": "covered", "segments": "covered", "translation": "covered", "consistency": "PASS"}
+}

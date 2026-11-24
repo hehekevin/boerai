@@ -1,58 +1,67 @@
 ---
-name: literature-search-forge
-description: 文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
-version: 1.0.0
-tags: [literature-search, week4, challenge-5c918ff0]
+name: multidb-union-search-forge
+description: 多数据库联合检索。按各库语法方言安排查询（不机械复制），跨库字段映射标准化（区分missing与unknown），合并保留裁决规则与来源回溯，失败降级显式披露缺口。触发词：多数据库、联合检索、字段映射、合并去重、来源回溯。
 ---
 
-# literature-search-forge
+# multidb-union-search-forge — 多数据库联合检索
 
-## 功能概述
+一句话：**各库各语法、字段有映射、合并留裁决、来源可回溯、失败即披露。**
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+## 核心原则（不可违反）
 
-## 核心能力
-
-- 检索策略、数据库选择、结果筛选、引文网络分析
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-5c918ff0
-- 题目: 多数据库联合检索
-- 赛道: Literature Search
+1. **不机械复制查询**：按各库检索语法、字段能力、调用额度分别安排查询（PubMed/MeSH、WoS/TS=、Scopus/TITLE-ABS-KEY），处理分页/限流/超时；每库查询式单独留痕。
+2. **字段标准化**：跨库字段映射表（TI/title/dc:title→title 等）统一作者/期刊/年份/标识符/文献类型表示；missing（原始记录无此字段）与 unknown（存在但不可解析）严格区分。
+3. **合并留裁决**：多条重复记录的字段取值按优先级表（doi>title>year>journal...）消解，冲突逐条记录裁决规则与备选值，结果稳定可复算。
+4. **来源回溯**：每条记录保留来源库、请求参数、原始响应片段、字段来源——结论可逐条核对到库。
+5. **失败降级**：某库不可用/限流/字段变更/返回异常时显式披露缺口（overall=incomplete），不静默返回不完整结果。
+6. **脚本先行**：字段映射/合并/去重/降级报告恒为0模型请求。
 
 ## 工作流程
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 阶段 0：盘点（1次请求）
 ```bash
-# 调用示例
-python3 literature-search-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/inspect_case.py /input/case.json > /app/work/00_inventory.txt
 ```
 
-## 注意事项
+### 阶段 1：字段标准化（0请求）
+按 FIELD_MAP 把各库原始记录映射为规范记录（每字段带 provenance: source_db + source_alias）。
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+### 阶段 2：合并与去重（0请求）
+```bash
+python <SKILL_DIR>/scripts/multidb_engine.py --merge /app/work/normalized.json > /app/work/merged.json
+```
+合并键：DOI优先，无DOI用标题归一化前60字；每字段记录 field_merge_log（field_priority/conflict_resolved/all_missing）。
 
-## 版本历史
+### 阶段 3：降级报告（0请求）
+```bash
+python <SKILL_DIR>/scripts/multidb_engine.py --degrade /app/work/dbs.json
+```
+逐库 status（ok/failed/rate_limited）+ gap 说明 + action。
 
-- v1.0.0: 初始版本，支持Literature Search赛道基础功能
+### 阶段 4：语义复核（约2-4次模型请求）
+复核冲突裁决是否合理（如标题仅大小写差异不应算实质冲突→修正规则）、各库覆盖贡献是否异常。
+
+### 阶段 5：交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：normalized、merged（含 merge_log）、provenance、degrade 报告、gaps/anomalies、status。核验：
+```bash
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/multidb-report.md --require "映射|mapping|标准化,合并|merge|去重|dedup,来源|provenance|回溯,降级|degrade|失败|缺口" --names "mapping,merge,provenance,degrade"
+```
+
+## 异常处置速查
+
+| 情形 | 处置 |
+|-|-|
+| 某库不可用 | degrade=failed，overall=incomplete，缺口显式披露 |
+| 字段方言未知 | aliases 表扩展并记录，未识别字段进 unknown |
+| 合并冲突过多 | 报告冲突率，>30% 时升级人工仲裁 |
+| 预算不足 | normalized/merged 先落盘 status=partial |
+
+## 资源清单
+- `scripts/multidb_engine.py` — 字段映射/合并/降级（确定性引擎）
+- `scripts/search_audit.py` — 合并后覆盖率复算
+- `scripts/inspect_case.py`、`scripts/validate_result.py`
+- `references/multidb-rules.md`、`templates/result.schema.json`
+- `examples/minimal-example.md`、`README.md`
+
+## 预算红线
+64 模型请求/900秒。映射/合并/降级恒为0请求。过60%时间冻结：normalized+merged 先落盘。

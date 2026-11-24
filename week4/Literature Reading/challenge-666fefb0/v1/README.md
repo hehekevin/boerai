@@ -1,34 +1,12 @@
-# literature-reading-forge
+# lit-classify-forge — 使用与方法说明
 
-文献阅读与分析工具，支持PDF解析、关键信息提取、内容总结
+**分类带依据、标签控粒度、命名有降级、版本只归档。**
 
-## 题目信息
+## 调用
+classify_engine --classify/--tags/--rename/--versions 四子命令。
 
-- **题目ID**: challenge-666fefb0
-- **题目**: 文献与资料自动分类
-- **赛道**: Literature Reading
-- **版本**: v1
+## 关键方法
+分类法树命中（子类优先）→ 粒度受控标签 → 模板命名降级 → 三重键版本识别（归档不删）。修复记录：all_tags set类型。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

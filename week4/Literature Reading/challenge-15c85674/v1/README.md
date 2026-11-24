@@ -1,34 +1,15 @@
-# literature-reading-forge
+# literature-qa-forge — 使用与方法说明
 
-文献阅读与分析工具，支持PDF解析、关键信息提取、内容总结
+**跨语言检索定位证据、逐题作答附锚点、条件不丢、不确定不编。**
 
-## 题目信息
+## 调用
+--index / --retrieve / --scaffold / --uncertainty 四子命令。
 
-- **题目ID**: challenge-15c85674
-- **题目**: 文献智能问答
-- **赛道**: Literature Reading
-- **版本**: v1
+## 关键方法
+ZH_EN_MAP 跨语言扩展→段落评分检索（Results加权）→子问拆分脚手架→不确定性五类审计。修复记录：zh词典须对原文匹配（非bigram）。
 
-## 快速开始
+## 边界
+适用：带段落编号的论文问答。不适用：PDF解析/图像识别/联网。
 
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

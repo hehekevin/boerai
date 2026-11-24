@@ -1,34 +1,12 @@
-# literature-search-forge
+# citation-tracking-forge — 使用与方法说明
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+**双向扩展有剪枝、网络有角色、路径有解释、身份有合并。**
 
-## 题目信息
+## 调用
+--trace / --network / --path / --merge 四子命令。
 
-- **题目ID**: challenge-60a8202d
-- **题目**: 引文追踪与关联文献发现
-- **赛道**: Literature Search
-- **版本**: v1
+## 关键方法
+BFS双向扩展（hop剪枝+hub剪枝）→ 角色识别 → 路径逐跳解释 → 版本身份归并。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

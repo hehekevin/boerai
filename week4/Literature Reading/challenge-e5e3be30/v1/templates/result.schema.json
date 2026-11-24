@@ -1,0 +1,13 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/verify-report.md",
+  "subclaims": {"n_subclaims": 0, "items": []},
+  "evidence": [{"sub_id": "", "evidence_text": "", "section": "", "para_no": 0}],
+  "verdicts": {"summary": {}, "items": []},
+  "refcheck": {},
+  "conflicts_and_limits": [],
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"decompose": "covered", "evidence": "covered", "verdicts": "covered", "conflicts": "covered"}
+}

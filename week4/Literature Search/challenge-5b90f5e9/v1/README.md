@@ -1,34 +1,15 @@
-# literature-search-forge
+# systematic-screening-forge — 使用与方法说明
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+**协议先行、逐条理由码、计数闭合、人工确认点显式。**
 
-## 题目信息
+## 调用
+见 SKILL.md 工作流；引擎子命令：--protocol / --screen / --dedup-multi / --audit。
 
-- **题目ID**: challenge-5b90f5e9
-- **题目**: 系统性文献检索与纳排筛选
-- **赛道**: Literature Search
-- **版本**: v1
+## 关键方法
+PICO 协议骨架（0请求）→ 多源去重（合并依据留痕）→ 逐条筛选（理由码+证据片段）→ pending 模型复核 → 计数闭合审计（FAIL 修复再交付）。
 
-## 快速开始
+## 边界与限制
+适用：系统综述纳排、检索协议审计。不适用：全文内容分析。限制：仅标题记录升 pending 不强行判定。
 
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。脚本改动同步 examples。

@@ -1,58 +1,43 @@
 ---
-name: academic-writing-forge
-description: 学术写作辅助工具，支持论文结构优化、语言润色、格式规范
-version: 1.0.0
-tags: [academic-writing, week4, ppt-6ad93034]
+name: ppt-gen-edit-forge
+description: PPT生成（内容取舍/页序/叙事角色）与编辑（压缩/扩写/换受众/换语言，术语与论文一致）、图表插入（重绘vs引用原图）、多轮迭代（版本比对/回退）。
 ---
 
-# academic-writing-forge
+# ppt-gen-edit-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **面生成**：从正文/结果段/提纲出发做内容取舍与页序规划；每页明确叙事角色。
+2. **容编辑**：压缩/扩写/换受众（导师/评审/同行）/换语言改写；术语/符号与论文一致。
+3. **表插入**：还原图表处理图注/编号/单位/引用；有底层数据才可重绘，否则只引用原图。
+4. **稿迭代**：多轮修改版本可比对——每轮改了什么/为什么/改坏如何回退（rollback_point）。
+5. **脚本先行**：edit/fit-template 恒为0模型请求。
 
-学术写作辅助工具，支持论文结构优化、语言润色、格式规范
-
-## 核心能力
-
-- 论文结构、学术语言、引用格式、逻辑优化
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: ppt-6ad93034
-- 题目: 学术 PPT 生成与编辑
-- 赛道: Academic Writing
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 生成骨架（0请求）：`python scripts/ppt_engine.py --outline paper.json`
+### 阶段2 编辑操作（0请求+1-2请求改写）：`python scripts/ppt_engine.py --edit slides.json ops.json`
+### 阶段3 图表槽位（0请求）：`python scripts/ppt_engine.py --figures paper.json`
+### 阶段4 模板适配（0请求）：`python scripts/ppt_engine.py --fit-template slides.json template.json`
+### 阶段5 成文（1请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 academic-writing-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/ppt-gen-edit-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 未知action | unknown_action 记录不执行 |
+| 术语漂移 | glossary 校验 |
+| 版本冲突 | rollback_point 链 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：ppt_engine.py + inspect_case + validate_result；references/rules.md；templates/result.schema.json；examples；README。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Academic Writing赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

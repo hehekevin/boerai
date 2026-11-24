@@ -1,58 +1,42 @@
 ---
-name: academic-writing-forge
-description: 学术写作辅助工具，支持论文结构优化、语言润色、格式规范
-version: 1.0.0
-tags: [academic-writing, week4, challenge-96263d10]
+name: format-spec-forge
+description: 模板规格逐项提取（栏数/字号/行距/页边距/层级/题注/文献样式/导出）、逐项符合核对、转换完整性（无删除合并图片化）、交付可用（字体嵌入/页码目录/保留可编辑源）。
 ---
 
-# academic-writing-forge
+# format-spec-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **认得准**：从模板文件与格式要求提取可逐项核对的规格——不凭经验；未声明项标"需确认"。
+2. **排得对**：标题层级/编号/题注交叉引用/文献条目/页眉页脚逐项符合——不只外观相似。
+3. **转得全**：正文/图表/公式/脚注/批注/修订/域代码/目录无删除/合并/改写/图片化。
+4. **交得出**：文件可打开、字体嵌入、页码目录可用、保留可编辑源文件、他人可按记录复核。
+5. **脚本先行**：extract/conform/completeness 恒为0模型请求。
 
-学术写作辅助工具，支持论文结构优化、语言润色、格式规范
-
-## 核心能力
-
-- 论文结构、学术语言、引用格式、逻辑优化
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-96263d10
-- 题目: 学术格式与模板适配
-- 赛道: Academic Writing
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 规格提取（0请求）：`python scripts/format_spec.py --extract template.json`
+### 阶段2 逐项核对（0请求）：`python scripts/format_spec.py --conform doc.json spec.json`
+### 阶段3 完整性校验（0请求）：`python scripts/format_spec.py --completeness before.json after.json`
+### 阶段4 成文（1请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 academic-writing-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/format-spec-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 规格未声明 | 需确认清单，不凭经验 |
+| 完整性LOST | 定位丢失项，禁止交付 |
+| 字体缺失 | 回退记录防版式错乱 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：format_spec.py + inspect_case + validate_result；references/rules.md；templates/result.schema.json；examples；README。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Academic Writing赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

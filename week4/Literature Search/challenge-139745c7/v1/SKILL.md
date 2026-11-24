@@ -1,58 +1,71 @@
 ---
-name: literature-search-forge
-description: 文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
-version: 1.0.0
-tags: [literature-search, week4, challenge-139745c7]
+name: file-retrieval-forge
+description: 科研文件智能检索。文件名+内容双路检索并排序（filename*3+content），命中定位到行号+章节标题（证据回链可逐字验证），过滤条件作为硬约束执行（无法满足如实报告不放宽），重复文件与版本差异识别（内容哈希+文件名标记）。触发词：文件检索、证据回链、章节定位、版本去重。
 ---
 
-# literature-search-forge
+# file-retrieval-forge — 科研文件智能检索
 
-## 功能概述
+一句话：**双路检索有排序、命中定位到章节、过滤是硬约束、版本不冒证据。**
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+## 核心原则（不可违反）
 
-## 核心能力
-
-- 检索策略、数据库选择、结果筛选、引文网络分析
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-139745c7
-- 题目: 科研文件智能检索
-- 赛道: Literature Search
+1. **跨文件双路检索**：文件名命中×3 + 内容命中计数排序；同义表述/缩写/上下位词由模型在机器结果之上做概念级复核——避免只命中文件名相同的那一份。
+2. **证据回链**：每条结论的定位包含文件路径、行号、章节标题、段落首句与原文片段——可点击、可逐字验证。
+3. **过滤是硬约束**：年份/项目编号/文件类型/实验批次/版本/权限等条件严格执行；条件无法满足时如实报告（unsatisfiable_filters），不放宽。
+4. **版本不冒证据**：内容哈希相同+文件名版本标记（v2/final/old/copy/旧版）→ 识别为副本/旧版本，不作为独立证据；保留最新版本。
+5. **脚本先行**：检索/定位/过滤/版本识别恒为0模型请求；模型只做语义复核与概念级扩展。
 
 ## 工作流程
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 阶段 0：盘点（1次请求）
 ```bash
-# 调用示例
-python3 literature-search-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/inspect_case.py /input/case.json > /app/work/00_inventory.txt
 ```
 
-## 注意事项
+### 阶段 1：双路检索（0请求）
+```bash
+python <SKILL_DIR>/scripts/file_search.py --find <目录> "<词1,词2,...>" > /app/work/find.json
+```
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+### 阶段 2：命中定位与证据回链（0请求）
+```bash
+python <SKILL_DIR>/scripts/file_search.py --locate <文件> "<关键词>" > /app/work/locate.json
+```
+输出：行号、章节标题、章节行号、原文片段。
 
-## 版本历史
+### 阶段 3：硬过滤（0请求）
+```bash
+python <SKILL_DIR>/scripts/file_search.py --filter <目录> <filters.json> > /app/work/filtered.json
+```
 
-- v1.0.0: 初始版本，支持Literature Search赛道基础功能
+### 阶段 4：版本识别（0请求）
+```bash
+python <SKILL_DIR>/scripts/file_search.py --versions <目录> > /app/work/versions.json
+```
+
+### 阶段 5：语义复核与成文（约2-4次模型请求）
+概念级扩展检索（同义表述/缩写/跨语言）→ 结果综合 → 检索报告。
+
+### 阶段 6：交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：find/locate/filter/versions 全量JSON、语义复核结论、gaps/anomalies、status。核验：
+```bash
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/filesearch-report.md --require "检索|find|搜索,定位|locate|回链|章节,过滤|filter|约束,版本|version|去重" --names "find,locate,filter,versions"
+```
+
+## 异常处置速查
+
+| 情形 | 处置 |
+|-|-|
+| 目录不存在 | gaps 声明，不虚构结果 |
+| 二进制文件 | 跳过内容检索并记录（不是文本可读） |
+| 过滤条件全部无匹配 | 如实报告0结果+原因，不放宽 |
+| 命中过多（>100文件） | 按score截断Top30+报告总数 |
+
+## 资源清单
+- `scripts/file_search.py` — find/locate/filter/versions（确定性引擎）
+- `scripts/inspect_case.py`、`scripts/validate_result.py`
+- `references/filesearch-rules.md`、`templates/result.schema.json`
+- `examples/minimal-example.md`、`README.md`
+
+## 预算红线
+64 模型请求/900秒。四子命令恒为0请求。过60%时间冻结。

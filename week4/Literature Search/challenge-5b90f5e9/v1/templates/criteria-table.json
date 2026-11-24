@@ -1,0 +1,9 @@
+{
+  "_comment": "纳排标准表模板：由 --protocol 骨架生成后按研究问题补充",
+  "inclusion_criteria": [
+    {"code": "I1", "criterion": "", "evidence_required": ""}
+  ],
+  "exclusion_criteria": [
+    {"code": "E1", "criterion": "", "evidence_required": ""}
+  ]
+}

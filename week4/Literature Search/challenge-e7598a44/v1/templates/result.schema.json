@@ -1,0 +1,12 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/qsearch-report.md",
+  "element_matrix": {"question": "", "elements": [], "gaps_for_model": []},
+  "query_plan": {"fragments": [], "templates": [], "round_plan": []},
+  "rounds_ledger": {"rounds": []},
+  "stop_evaluation": {"should_stop": false, "stop_reasons": [], "human_needed": false},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"decompose": "covered", "plan": "covered", "rounds": "covered", "stop": "covered"}
+}

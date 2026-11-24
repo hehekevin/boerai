@@ -1,0 +1,14 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/ranking-report.md",
+  "weights": {"relevance_terms": 0.45, "recency": 0.25, "venue_weight": 0.2, "study_type": 0.1},
+  "ranked": [],
+  "labels": {"summary": {}, "records": []},
+  "conflicts": [],
+  "explanations": [],
+  "human_review_queue": [],
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"score": "covered", "label": "covered", "conflicts": "covered", "explain": "covered"}
+}

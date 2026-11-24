@@ -1,34 +1,12 @@
-# literature-search-forge
+# scholarly-search-forge — 使用与方法说明
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+**多轮规划提覆盖、扩展控发散、库组合有权衡、去重留来源。**
 
-## 题目信息
+## 调用
+search_audit --plan/--dedup + iter_loop --ledger/--stop。
 
-- **题目ID**: challenge-a2909a72
-- **题目**: 学术文献检索
-- **赛道**: Literature Search
-- **版本**: v1
+## 关键方法
+扩展矩阵→多轮台账→四维库权衡→DOI优先去重。停止判据四类。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

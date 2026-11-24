@@ -1,34 +1,12 @@
-# literature-search-forge
+# search-general-forge — 使用与方法说明
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+**全链路编排、六子场景可独立复跑、每条结果带依据、遗漏必说明。**
 
-## 题目信息
+## 调用
+三个子引擎（search_audit/screening_engine/iter_loop）按 case.json 路由执行；路由规则见 references/general-rules.md。
 
-- **题目ID**: challenge-baddb1f9
-- **题目**: 文献检索领域总课题
-- **赛道**: Literature Search
-- **版本**: v1
+## 关键方法
+盘点→路由→子引擎执行（0请求）→综合成文→契约校验。四步保底（范围/流程/依据/异常说明）。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

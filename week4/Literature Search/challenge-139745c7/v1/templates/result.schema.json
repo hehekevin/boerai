@@ -1,0 +1,12 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/filesearch-report.md",
+  "find": {"terms": [], "n_matched": 0, "results": []},
+  "locate": {"hits": []},
+  "filters_applied": {"filters": {}, "unsatisfiable": []},
+  "versions": {"n_duplicate_content": 0, "findings": []},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"find": "covered", "locate": "covered", "filter": "covered", "versions": "covered"}
+}

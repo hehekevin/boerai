@@ -1,0 +1,12 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/crosslang-report.md",
+  "term_matrix": {"n_pairs": 0, "pairs": []},
+  "language_detection": {"records": [], "summary": {}},
+  "matches": {"n_records": 0, "n_matched": 0, "matches": []},
+  "review_queue": {"high_risk": 0, "total": 0, "queue": []},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"terms": "covered", "lang": "covered", "match": "covered", "review": "covered"}
+}

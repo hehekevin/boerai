@@ -1,34 +1,12 @@
-# literature-reading-forge
+# multdoc-compare-forge — 使用与方法说明
 
-文献阅读与分析工具，支持PDF解析、关键信息提取、内容总结
+**字段先对齐、口径随值走、冲突归因到条件、每格可回原文。**
 
-## 题目信息
+## 调用
+compare_matrix --matrix/--comparable/--conflicts + multidb_engine 字段标准化。
 
-- **题目ID**: challenge-95061011
-- **题目**: 多文档比较与整合
-- **赛道**: Literature Reading
-- **版本**: v1
+## 关键方法
+七字段矩阵→可比性判定（full/subset_only）→方向冲突归因候选→口径随值。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

@@ -1,34 +1,12 @@
-# literature-search-forge
+# multidb-union-search-forge — 使用与方法说明
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+**各库各语法、字段有映射、合并留裁决、来源可回溯、失败即披露。**
 
-## 题目信息
+## 调用
+--demo（内置演示）/ --merge（合并）/ --degrade（降级报告）。方言适配表与优先级表见 references。
 
-- **题目ID**: challenge-5c918ff0
-- **题目**: 多数据库联合检索
-- **赛道**: Literature Search
-- **版本**: v1
+## 关键方法
+FIELD_MAP 跨库映射（missing/unknown 区分）→ 合并键（DOI优先）→ 字段级裁决留痕 → 降级披露。已知限制：仅大小写差异可能误计冲突。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

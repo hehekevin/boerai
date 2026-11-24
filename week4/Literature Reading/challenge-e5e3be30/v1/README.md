@@ -1,34 +1,12 @@
-# literature-reading-forge
+# evidence-verify-forge — 使用与方法说明
 
-文献阅读与分析工具，支持PDF解析、关键信息提取、内容总结
+**论断拆得开、证据找得到、判定判得准（主题相关≠支持）、冲突说得清。**
 
-## 题目信息
+## 调用
+verify_engine --decompose/--support + claim_evidence --checkref。
 
-- **题目ID**: challenge-e5e3be30
-- **题目**: 文献证据溯源与事实核验
-- **赛道**: Literature Reading
-- **版本**: v1
+## 关键方法
+类型化拆解（4类）→ 句子级最小证据 → 四档支持度（跨语言词表）→ 冲突限制显式。修复记录：跨语言判定需原文匹配扩展。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

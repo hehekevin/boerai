@@ -1,0 +1,13 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/compare-report.md",
+  "field_definitions": {},
+  "matrix": {"n_papers": 0, "fields": [], "matrix": []},
+  "comparability": {"verdicts": []},
+  "conflicts": {"n_conflicts": 0, "conflicts": []},
+  "integration": {"consistent": [], "conflicting": [], "synthesis": ""},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"align": "covered", "caliber": "covered", "conflicts": "covered", "backlink": "covered"}
+}

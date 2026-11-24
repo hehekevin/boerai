@@ -1,0 +1,13 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/multidb-report.md",
+  "per_db_queries": [{"db": "", "query": "", "hits": 0}],
+  "normalized": [],
+  "merged": {"n_input": 0, "n_merged": 0, "n_conflicts": 0, "records": [], "conflicts": []},
+  "provenance": "per-field source_db + source_alias（在 merged.records.field_merge_log）",
+  "degrade": {"overall": "complete|incomplete", "dbs": []},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"mapping": "covered", "merge": "covered", "provenance": "covered", "degrade": "covered"}
+}

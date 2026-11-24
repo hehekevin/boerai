@@ -1,0 +1,17 @@
+{
+ "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+ "case_id": "REQUIRED",
+ "status": "success | partial | failed",
+ "status_reason": "",
+ "task_summary": "",
+ "report_path": "/app/output/annot-forge.md",
+ "coverage": {
+  "p1": "covered",
+  "p2": "covered",
+  "p3": "covered"
+ },
+ "gaps": [],
+ "conflicts": [],
+ "uncertainties": [],
+ "anomalies": []
+}

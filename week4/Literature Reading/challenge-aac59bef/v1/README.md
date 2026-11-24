@@ -1,34 +1,12 @@
-# literature-reading-forge
+# webread-translate-forge — 使用与方法说明
 
-文献阅读与分析工具，支持PDF解析、关键信息提取、内容总结
+**先切正文去噪声、段落级翻译不漏补、术语表保一致、抓取边界说清楚。**
 
-## 题目信息
+## 调用
+content_extract --extract/--segments + build_glossary + verify_translation（复用第3周验证资产）。
 
-- **题目ID**: challenge-aac59bef
-- **题目**: 网页文献阅读与翻译
-- **赛道**: Literature Reading
-- **版本**: v1
+## 关键方法
+三重启发式正文识别→段落分段→glossary术语一致性→校验FAIL修正。付费墙不抓不编。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

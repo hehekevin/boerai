@@ -1,58 +1,56 @@
 ---
-name: literature-reading-forge
-description: 文献阅读与分析工具，支持PDF解析、关键信息提取、内容总结
-version: 1.0.0
-tags: [literature-reading, week4, challenge-f730fc37]
+name: reader-client-forge
+description: 阅读客户端。单界面全流程（打开/定位/选中提问/保存/回看）、选区问答锚定原文、状态持久化可导出、操作路径+锚点+原始输出可复核复现。触发词见核心原则。
 ---
 
-# literature-reading-forge
+# reader-client-forge — 阅读客户端
 
-## 功能概述
+## 核心原则（不可违反）
 
-文献阅读与分析工具，支持PDF解析、关键信息提取、内容总结
+1. **得起来**：打开文献、定位、选中提问、保存结果、回看在同一处完成——sessionlog 六步审计，跨工具搬运=FAIL。
+2. **上原文**：答案基于当前页面与选中文本；锚点（页码/段落/片段）一键回跳；引文与上下文逐字匹配校验。
+3. **得下来**：批注/问答结论/阅读位置保存、回看、导出——随对话消失=失败。
+4. **得清楚**：操作路径、原文锚点、每次运行原始输出可被他人复核复现。
+5. **定位容错**：PDF物理页与印刷页不一致、跨栏排版、扫描件无文本层——处理方式显式声明。
+6. **脚本先行**：sessionlog/anchor/persistence/repro 恒为0模型请求。
 
-## 核心能力
+## 运行环境约定
 
-- PDF解析、结构化提取、内容摘要、关键发现识别
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-f730fc37
-- 题目: 阅读客户端
-- 赛道: Literature Reading
+- 输入 `/input/case.json` 与 `/input/task.md`；材料以实际路径为准。工作目录 `/app/work`，输出 `/app/output`。引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
+### 阶段0 盘点（1请求）：`python scripts/inspect_case.py /input/case.json`
+### 阶段1 流程审计（0请求）：`python scripts/reader_workflow.py --sessionlog events.json`
+### 阶段2 锚点校验（0请求）：`python scripts/reader_workflow.py --anchor answers.json`
+### 阶段3 持久化审计（0请求）：`python scripts/reader_workflow.py --persistence session.json`
+### 阶段4 复现审计（0请求）：`python scripts/reader_workflow.py --repro session.json`
+### 阶段5 成文（1请求）：客户端工作流说明
 
-## 输出规范
+### 交付阶段（0请求）
 
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
+组装 `/app/output/result.json`（合并 output_contract 全部字段与 case_id）。核验：
 
 ```bash
-# 调用示例
-python3 literature-reading-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/reader-client-forge.md --require "原则关键词,流程关键词,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+主产物 `/app/output/reader-client-forge.md`：每条结论带锚点。
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 异常处置速查（详见 references/rules.md）
 
-## 版本历史
+| 情形 | 处置 |
+|-|-|
+| 流程缺步 | missing_steps 列出+FAIL |
+| 答案无锚点 | unanchored——补锚点或标推断 |
+| 扫描件无文本层 | 声明OCR限制，不编造文本 |
+| 导出格式未声明 | 列为缺口 |
 
-- v1.0.0: 初始版本，支持Literature Reading赛道基础功能
+## 资源清单
+
+- `scripts/`：reader_workflow.py；inspect_case.py、validate_result.py
+- `references/rules.md`、`templates/result.schema.json`、`examples/minimal-example.md`、`README.md`
+
+## 预算红线
+
+64 次模型请求 / 900 秒 / 单响应 16384 token。确定性子命令恒为 0 请求；模型仅语义裁决与成文。过 60% 时间冻结：JSON 先落盘，status=partial。

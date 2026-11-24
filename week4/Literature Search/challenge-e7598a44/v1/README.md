@@ -1,34 +1,15 @@
-# literature-search-forge
+# question-driven-search-forge — 使用与方法说明
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+**先拆解后查询、要素矩阵留痕、多轮按缺口调整、停止有判据。**
 
-## 题目信息
+## 调用
+--decompose（六槽拆解）/ --plan（查询组合+三轮规划）/ --rounds（下一轮提案）/ --stop（停止判据）。
 
-- **题目ID**: challenge-e7598a44
-- **题目**: 科研问题驱动检索
-- **赛道**: Literature Search
-- **版本**: v1
+## 关键方法
+领域词典直查（中文不分词，词典词在原句中查找）→ 组合模板 → 多轮缺口驱动 → 四类停止判据。gaps_for_model 由模型回填并标注 basis=model。
 
-## 快速开始
+## 边界
+适用：科研问题到检索式的转化。不适用：无明确研究问题的泛检索。
 
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

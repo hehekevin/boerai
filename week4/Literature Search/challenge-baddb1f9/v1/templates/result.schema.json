@@ -1,0 +1,13 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/search-report.md",
+  "route": {"subscenario": "", "rationale": ""},
+  "executed_stages": [],
+  "candidates": [{"idx": 0, "title": "", "source": "", "relevance_evidence": ""}],
+  "screening_or_coverage": {},
+  "misses_and_gaps": [],
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"route": "covered", "candidates": "covered", "evidence": "covered", "misses": "covered"}
+}

@@ -1,0 +1,15 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED",
+  "status": "success | partial | failed",
+  "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/screening-report.md",
+  "protocol": {"question": "", "PICO": {}, "inclusion_criteria": [], "exclusion_criteria": [], "search_protocol": {"databases": [], "fields": "", "date_range": "", "language_limit": "", "search_date": ""}},
+  "dedup": {"n_input": 0, "n_unique": 0, "n_duplicates": 0, "merge_rationales": []},
+  "screening": {"n_input": 0, "counts": {"include": 0, "exclude": 0, "pending": 0}, "records": []},
+  "audit_chain": {"closed_loop": true, "chain": []},
+  "human_confirm": [],
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"protocol": "covered", "screening": "covered", "audit": "PASS"}
+}

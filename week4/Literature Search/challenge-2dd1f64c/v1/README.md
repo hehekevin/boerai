@@ -1,34 +1,12 @@
-# literature-search-forge
+# screening-ranking-forge — 使用与方法说明
 
-文献检索工具，支持多数据库检索、引文追踪、跨语言搜索
+**权重显式可复算、标签分层有判据、冲突不掩盖、解释逐条给。**
 
-## 题目信息
+## 调用
+--score / --label / --conflicts / --explain 四子命令。
 
-- **题目ID**: challenge-2dd1f64c
-- **题目**: 文献筛选与智能排序
-- **赛道**: Literature Search
-- **版本**: v1
+## 关键方法
+四信号加权（权重写进结果）→ 分层标签 → 冲突分类处理 → 逐条置信度解释。
 
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。

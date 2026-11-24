@@ -1,58 +1,42 @@
 ---
-name: academic-writing-forge
-description: 学术写作辅助工具，支持论文结构优化、语言润色、格式规范
-version: 1.0.0
-tags: [academic-writing, week4, challenge-32c0210d]
+name: thesis-longdoc-forge
+description: 章节规划对齐提纲与字数分配、跨章节术语/符号/编号/图表引用/结论一致（改动影响定位）、局部修改最小化、论断引用改动可追溯。
 ---
 
-# academic-writing-forge
+# thesis-longdoc-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **立得住**：章节规划与提纲、论证链条、字数分配对应——不是堆通顺文字。
+2. **连得上**：跨章节术语/定义/符号/编号/图表引用/前后结论一致；改动一处后受影响段落可被找出（影响面分析）。
+3. **改得动**：局部修改只动需要动的地方，保留原意与既有表述；作者能看懂改了什么为什么。
+4. **查得清**：每个论断/引用/改动追溯到原文/文献/版本记录，他人可独立复核。
+5. **脚本先行**：structure_audit（第3周验证资产）+ revision_tracker 复用；crossdoc 一致性校验新引擎逻辑内置于 structure_audit 流程。
 
-学术写作辅助工具，支持论文结构优化、语言润色、格式规范
-
-## 核心能力
-
-- 论文结构、学术语言、引用格式、逻辑优化
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-32c0210d
-- 题目: 学位论文与长文档写作
-- 赛道: Academic Writing
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 结构审计（0请求）：`python scripts/structure_audit.py --audit 章节树`（复用第3周资产）
+### 阶段2 修订追踪（0请求）：`python scripts/revision_tracker.py --diff 修改记录`
+### 阶段3 一致性影响面（0请求）：`python scripts/structure_audit.py --impact 改动项`
+### 阶段4 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 academic-writing-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/thesis-longdoc-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 章节字数失衡 | 分配表+偏差报告 |
+| 术语不一致 | 一致性清单+受影响段落定位 |
+| 大范围重写请求 | 拆成可接受/拒绝的最小编辑单元 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：zeros-probe-placeholder + inspect_case + validate_result；references/rules.md；templates/result.schema.json；examples；README。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Academic Writing赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

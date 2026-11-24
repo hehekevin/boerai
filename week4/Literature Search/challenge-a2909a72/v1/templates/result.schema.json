@@ -1,0 +1,12 @@
+{
+  "_comment": "交付时合并 case.json 全部 output_contract 字段与 case_id。",
+  "case_id": "REQUIRED", "status": "success | partial | failed", "status_reason": "",
+  "task_summary": "",
+  "report_path": "/app/output/search-report.md",
+  "query_plan": {"expansions": {}, "templates": [], "db_choices": [{"db": "", "rationale": ""}]},
+  "dedup": {"n_input": 0, "n_unique": 0, "n_duplicates": 0},
+  "rounds_ledger": {"rounds": []},
+  "stop_evaluation": {},
+  "gaps": [], "conflicts": [], "uncertainties": [], "anomalies": [],
+  "coverage": {"plan": "covered", "dbs": "covered", "dedup": "covered", "stop": "covered"}
+}
