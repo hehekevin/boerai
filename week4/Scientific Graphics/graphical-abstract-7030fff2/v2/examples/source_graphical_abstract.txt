@@ -1,0 +1,7 @@
+Hyper-osmotic stress activates the membrane sensor.
+The sensor is located in the plasma membrane of the cell.
+Sensor activation releases the transcription factor.
+The transcription factor induces its target genes.
+Target gene expression increases 3.2-fold.
+Induction of the target genes promotes survival.
+Expression of the reporter was 1.0 under iso-osmotic and 3.2 under hyper-osmotic conditions.

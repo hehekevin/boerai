@@ -1,0 +1,4 @@
+Relative expression was 1.0 in WT, 0.6 in het and 0.15 in ko (fold, mean of 3 replicates).
+Signal peaked at 20 min after induction.
+Heatmap values are z-scores across four genes and four time points.
+Body length was lower in mutants than in WT.

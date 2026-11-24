@@ -1,0 +1,235 @@
+{
+ "version": "1.0",
+ "end_styles": {
+  "arrow": "positive regulation or flow",
+  "bar": "negative regulation (T-bar)",
+  "diamond": "binding",
+  "none": "structural relation"
+ },
+ "types": {
+  "activate": {
+   "zh": "激活",
+   "end": "arrow",
+   "dash": false,
+   "verbs_en": [
+    "activates",
+    "induces",
+    "promotes",
+    "stimulates",
+    "drives",
+    "triggers",
+    "enhances"
+   ],
+   "verbs_zh": [
+    "激活",
+    "诱导",
+    "促进",
+    "增强",
+    "触发"
+   ]
+  },
+  "inhibit": {
+   "zh": "抑制",
+   "end": "bar",
+   "dash": false,
+   "verbs_en": [
+    "inhibits",
+    "suppresses",
+    "represses",
+    "blocks",
+    "prevents",
+    "attenuates",
+    "reduces"
+   ],
+   "verbs_zh": [
+    "抑制",
+    "阻遏",
+    "阻断",
+    "降低",
+    "削弱"
+   ]
+  },
+  "bind": {
+   "zh": "结合",
+   "end": "diamond",
+   "dash": false,
+   "verbs_en": [
+    "binds",
+    "recruits",
+    "associates with",
+    "interacts with"
+   ],
+   "verbs_zh": [
+    "结合",
+    "招募",
+    "相互作用"
+   ]
+  },
+  "complex": {
+   "zh": "复合物",
+   "end": "none",
+   "dash": false,
+   "verbs_en": [
+    "forms a complex with",
+    "assembles with"
+   ],
+   "verbs_zh": [
+    "组成复合物",
+    "装配"
+   ]
+  },
+  "phosphorylate": {
+   "zh": "磷酸化",
+   "end": "arrow",
+   "dash": true,
+   "verbs_en": [
+    "phosphorylates",
+    "ubiquitinates",
+    "acetylates",
+    "methylates"
+   ],
+   "verbs_zh": [
+    "磷酸化",
+    "泛素化",
+    "乙酰化",
+    "甲基化"
+   ]
+  },
+  "transport": {
+   "zh": "转运",
+   "end": "arrow",
+   "dash": false,
+   "verbs_en": [
+    "transports",
+    "imports",
+    "exports",
+    "secretes",
+    "releases"
+   ],
+   "verbs_zh": [
+    "转运",
+    "输入",
+    "输出",
+    "分泌",
+    "释放"
+   ]
+  },
+  "translocate": {
+   "zh": "易位",
+   "end": "arrow",
+   "dash": true,
+   "verbs_en": [
+    "translocates to",
+    "moves to",
+    "shuttles to"
+   ],
+   "verbs_zh": [
+    "易位",
+    "转移"
+   ]
+  },
+  "flow": {
+   "zh": "流向",
+   "end": "arrow",
+   "dash": false,
+   "verbs_en": [
+    "flows to",
+    "feeds",
+    "is passed to",
+    "enters"
+   ],
+   "verbs_zh": [
+    "流入",
+    "送入",
+    "进入"
+   ]
+  },
+  "sequence": {
+   "zh": "时序",
+   "end": "arrow",
+   "dash": false,
+   "verbs_en": [
+    "then",
+    "followed by",
+    "next"
+   ],
+   "verbs_zh": [
+    "随后",
+    "接着",
+    "下一步"
+   ]
+  },
+  "contain": {
+   "zh": "包含",
+   "end": "none",
+   "dash": false,
+   "verbs_en": [
+    "contains",
+    "comprises",
+    "consists of"
+   ],
+   "verbs_zh": [
+    "包含",
+    "由…组成"
+   ]
+  },
+  "part_of": {
+   "zh": "属于",
+   "end": "none",
+   "dash": true,
+   "verbs_en": [
+    "is part of",
+    "belongs to"
+   ],
+   "verbs_zh": [
+    "属于"
+   ]
+  },
+  "connect": {
+   "zh": "连接",
+   "end": "none",
+   "dash": false,
+   "verbs_en": [
+    "is connected to",
+    "is coupled to",
+    "drives (mechanically)"
+   ],
+   "verbs_zh": [
+    "连接",
+    "耦合"
+   ]
+  },
+  "signal": {
+   "zh": "信号",
+   "end": "arrow",
+   "dash": true,
+   "verbs_en": [
+    "signals to",
+    "sends a signal to",
+    "reports to"
+   ],
+   "verbs_zh": [
+    "发信号给",
+    "上报"
+   ]
+  },
+  "catalyze": {
+   "zh": "催化",
+   "end": "arrow",
+   "dash": false,
+   "verbs_en": [
+    "catalyzes",
+    "converts"
+   ],
+   "verbs_zh": [
+    "催化",
+    "转化"
+   ]
+  }
+ },
+ "rules": [
+  "End shape is semantics, not decoration: an inhibition drawn as an arrow is a wrong claim.",
+  "Dashed = indirect or multi-step; do not use dashes for emphasis.",
+  "Every type used must appear in the legend with its meaning."
+ ]
+}

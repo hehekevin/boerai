@@ -1,0 +1,30 @@
+{
+ "name": "okabe-ito-cvd-safe",
+ "source": "Okabe & Ito, Color Universal Design (2008); Wong, Nat Methods 8:441 (2011)",
+ "categorical": [
+  "#0072B2",
+  "#D55E00",
+  "#009E73",
+  "#CC79A7",
+  "#E69F00",
+  "#56B4E9",
+  "#8C564B",
+  "#7F7F7F"
+ ],
+ "greyscale_order": [
+  "#000000",
+  "#4D4D4D",
+  "#808080",
+  "#B3B3B3",
+  "#D9D9D9"
+ ],
+ "semantic": {
+  "activate": "#0072B2",
+  "inhibit": "#D55E00",
+  "bind": "#009E73",
+  "modify": "#CC79A7",
+  "transport": "#E69F00",
+  "structural": "#7F7F7F"
+ },
+ "note": "Same category -> same colour in legend, marks and nodes; never encode two variables with one channel."
+}

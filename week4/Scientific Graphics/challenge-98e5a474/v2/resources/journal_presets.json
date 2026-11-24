@@ -1,0 +1,79 @@
+{
+ "source": "Nature figure guidelines (89/120/183 mm), Science (55/120/183 mm), Elsevier (90/140/190 mm); values rounded for layout",
+ "presets": {
+  "nature_single": {
+   "width_mm": 89,
+   "height_mm": 70,
+   "font_pt": 5.5,
+   "line_pt": 0.5,
+   "min_font_pt": 5.0
+  },
+  "nature_1_5": {
+   "width_mm": 120,
+   "height_mm": 90,
+   "font_pt": 6.0,
+   "line_pt": 0.5,
+   "min_font_pt": 5.0
+  },
+  "nature_double": {
+   "width_mm": 183,
+   "height_mm": 120,
+   "font_pt": 6.5,
+   "line_pt": 0.6,
+   "min_font_pt": 5.0
+  },
+  "science_double": {
+   "width_mm": 175,
+   "height_mm": 110,
+   "font_pt": 6.5,
+   "line_pt": 0.6,
+   "min_font_pt": 5.0
+  },
+  "elsevier_double": {
+   "width_mm": 190,
+   "height_mm": 130,
+   "font_pt": 7.0,
+   "line_pt": 0.6,
+   "min_font_pt": 6.0
+  },
+  "thesis_a4": {
+   "width_mm": 160,
+   "height_mm": 110,
+   "font_pt": 8.0,
+   "line_pt": 0.7,
+   "min_font_pt": 6.0
+  },
+  "grant_slide": {
+   "width_mm": 230,
+   "height_mm": 130,
+   "font_pt": 9.0,
+   "line_pt": 0.8,
+   "min_font_pt": 7.0
+  },
+  "ga_landscape": {
+   "width_mm": 160,
+   "height_mm": 80,
+   "font_pt": 7.0,
+   "line_pt": 0.7,
+   "min_font_pt": 6.0
+  }
+ },
+ "export": {
+  "vector": [
+   "svg",
+   "pdf"
+  ],
+  "raster": {
+   "format": "png",
+   "dpi": [
+    300,
+    600
+   ],
+   "color": "RGB"
+  },
+  "tiff": {
+   "compression": "LZW",
+   "dpi": 600
+  }
+ }
+}

@@ -1,0 +1,6 @@
+The sensor array feeds the data acquisition board with 12 ms latency.
+The controller updates the set point every 10 ms.
+The actuator drives the mechanical load with 4 ms latency.
+A data logger records the controller state asynchronously.
+The sensing unit comprises the sensor array and the data acquisition board.
+The actuation unit comprises the actuator and the mechanical load.

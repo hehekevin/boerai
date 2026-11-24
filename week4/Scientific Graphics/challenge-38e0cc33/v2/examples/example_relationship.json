@@ -1,0 +1,180 @@
+{
+ "case_id": "example-relationship",
+ "figure_id": "example_relationship",
+ "figure_kind": "relationship_schematic",
+ "title": "Organisation of the sensor–actuator platform (example)",
+ "canvas": {
+  "preset": "nature_double",
+  "dpi": 600
+ },
+ "caption": "示例：方框=模块，箭头=信息流，虚线框=同一机箱内的模块；连线上的数值为实测时延（ms，n = 5 次）。内容为示例，非正式案例结果。",
+ "nodes": [
+  {
+   "id": "sensor",
+   "label": "Sensor array",
+   "class": "component",
+   "group": "g1",
+   "order": 1,
+   "source": "E1"
+  },
+  {
+   "id": "daq",
+   "label": "Data acquisition",
+   "class": "component",
+   "group": "g1",
+   "order": 2,
+   "source": "E1"
+  },
+  {
+   "id": "ctrl",
+   "label": "Controller",
+   "class": "process",
+   "order": 3,
+   "source": "E2",
+   "emphasis": "key"
+  },
+  {
+   "id": "act",
+   "label": "Actuator",
+   "class": "component",
+   "group": "g2",
+   "order": 4,
+   "source": "E3"
+  },
+  {
+   "id": "load",
+   "label": "Mechanical load",
+   "class": "entity",
+   "group": "g2",
+   "order": 5,
+   "source": "E3"
+  },
+  {
+   "id": "log",
+   "label": "Data logger",
+   "class": "data",
+   "order": 6,
+   "source": "E4"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "sensor",
+   "to": "daq",
+   "type": "flow",
+   "label": "12 ms",
+   "source": "E1"
+  },
+  {
+   "id": "e2",
+   "from": "daq",
+   "to": "ctrl",
+   "type": "flow",
+   "source": "E2"
+  },
+  {
+   "id": "e3",
+   "from": "ctrl",
+   "to": "act",
+   "type": "flow",
+   "label": "4 ms",
+   "source": "E3"
+  },
+  {
+   "id": "e4",
+   "from": "act",
+   "to": "load",
+   "type": "connect",
+   "source": "E3"
+  },
+  {
+   "id": "e5",
+   "from": "ctrl",
+   "to": "log",
+   "type": "signal",
+   "dash": true,
+   "source": "E4"
+  }
+ ],
+ "containers": [
+  {
+   "id": "g1",
+   "label": "Sensing unit",
+   "members": [
+    "sensor",
+    "daq"
+   ],
+   "source": "E1"
+  },
+  {
+   "id": "g2",
+   "label": "Actuation unit",
+   "members": [
+    "act",
+    "load"
+   ],
+   "source": "E3"
+  }
+ ],
+ "annotations": [
+  {
+   "id": "a1",
+   "kind": "callout",
+   "target": "ctrl",
+   "text": "closed-loop update every 10 ms"
+  }
+ ],
+ "legend": {
+  "items": [
+   {
+    "key": "flow",
+    "label": "data flow",
+    "swatch": "arrow",
+    "color": "#0072B2"
+   },
+   {
+    "key": "signal",
+    "label": "asynchronous log",
+    "swatch": "dash",
+    "color": "#8C564B"
+   },
+   {
+    "key": "connect",
+    "label": "mechanical coupling",
+    "swatch": "line",
+    "color": "#7F7F7F"
+   }
+  ]
+ },
+ "evidence": {
+  "E1": {
+   "source": "S1",
+   "locator": "p.2",
+   "quote": "The sensor array feeds the data acquisition board (12 ms latency)."
+  },
+  "E2": {
+   "source": "S1",
+   "locator": "p.2",
+   "quote": "The controller updates the set point every 10 ms."
+  },
+  "E3": {
+   "source": "S1",
+   "locator": "p.2",
+   "quote": "The actuator drives the mechanical load with 4 ms latency."
+  },
+  "E4": {
+   "source": "S1",
+   "locator": "p.3",
+   "quote": "A data logger records the controller state asynchronously."
+  }
+ },
+ "sources": [
+  {
+   "id": "S1",
+   "path": "examples/source_relationship.txt",
+   "kind": "text",
+   "note": "synthetic example"
+  }
+ ]
+}

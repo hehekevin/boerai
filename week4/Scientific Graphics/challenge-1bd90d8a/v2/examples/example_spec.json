@@ -1,0 +1,307 @@
+{
+ "spec_version": "1.0",
+ "case_id": "example-case",
+ "figure_id": "example_figure",
+ "figure_kind": "mechanism_pathway",
+ "title": "EGFR–RAS–ERK signalling and its pharmacological blockade (example)",
+ "canvas": {
+  "preset": "nature_double",
+  "dpi": 600,
+  "font_pt": 6.4,
+  "line_pt": 0.6
+ },
+ "caption": "Example figure produced by FigForge from the bundled example spec; all values are illustrative, not measurements. (A) Ligand-bound EGFR activates RAS through GRB2–SOS, and active ERK feeds back onto SOS. Dashed arrows denote indirect or multi-step links, T-bars denote inhibition. (B) Relative ERK phosphorylation after 24 h of vehicle, erlotinib or selumetinib (mean ± s.d., n = 3 independent cultures per group). (C) Normalised pathway score across four cell lines. Grey bands delimit the extracellular space, the plasma membrane and the cytoplasm.",
+ "lanes": [
+  {
+   "id": "extra",
+   "label": "Extracellular",
+   "order": 0,
+   "fill": "#F4F8FB"
+  },
+  {
+   "id": "membrane",
+   "label": "Plasma membrane",
+   "order": 1,
+   "fill": "#EEF3F7"
+  },
+  {
+   "id": "cyto",
+   "label": "Cytoplasm",
+   "order": 2,
+   "fill": "#FAFAFA"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "egf",
+   "label": "EGF",
+   "class": "ligand",
+   "lane": "extra",
+   "order": 1,
+   "source": "E1"
+  },
+  {
+   "id": "egfr",
+   "label": "EGFR",
+   "class": "receptor",
+   "shape": "membrane_receptor",
+   "lane": "membrane",
+   "order": 1,
+   "source": "E2",
+   "emphasis": "key"
+  },
+  {
+   "id": "grb2",
+   "label": "GRB2",
+   "class": "protein",
+   "lane": "cyto",
+   "order": 1,
+   "source": "E3"
+  },
+  {
+   "id": "sos",
+   "label": "SOS",
+   "class": "protein",
+   "lane": "cyto",
+   "order": 2,
+   "source": "E3"
+  },
+  {
+   "id": "ras",
+   "label": "RAS-GTP",
+   "class": "protein",
+   "lane": "cyto",
+   "order": 3,
+   "source": "E4"
+  },
+  {
+   "id": "erk",
+   "label": "ERK",
+   "class": "kinase",
+   "lane": "cyto",
+   "order": 4,
+   "source": "E4",
+   "emphasis": "key"
+  },
+  {
+   "id": "drug",
+   "label": "Erlotinib",
+   "class": "reagent",
+   "lane": "extra",
+   "order": 2,
+   "source": "E5"
+  },
+  {
+   "id": "selu",
+   "label": "Selumetinib",
+   "class": "reagent",
+   "lane": "cyto",
+   "order": 5,
+   "source": "E6"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "egf",
+   "to": "egfr",
+   "type": "bind",
+   "source": "E1"
+  },
+  {
+   "id": "e2",
+   "from": "egfr",
+   "to": "grb2",
+   "type": "bind",
+   "source": "E2"
+  },
+  {
+   "id": "e3",
+   "from": "grb2",
+   "to": "sos",
+   "type": "activate",
+   "source": "E3"
+  },
+  {
+   "id": "e4",
+   "from": "sos",
+   "to": "ras",
+   "type": "activate",
+   "source": "E3"
+  },
+  {
+   "id": "e5",
+   "from": "ras",
+   "to": "erk",
+   "type": "activate",
+   "label": "via RAF–MEK",
+   "source": "E4"
+  },
+  {
+   "id": "e6",
+   "from": "erk",
+   "to": "sos",
+   "type": "inhibit",
+   "label": "feedback",
+   "source": "E7"
+  },
+  {
+   "id": "e7",
+   "from": "drug",
+   "to": "egfr",
+   "type": "inhibit",
+   "source": "E5"
+  },
+  {
+   "id": "e8",
+   "from": "selu",
+   "to": "erk",
+   "type": "inhibit",
+   "label": "MEK blockade",
+   "source": "E6"
+  }
+ ],
+ "charts": [
+  {
+   "id": "c1",
+   "panel": "B",
+   "type": "bar",
+   "data": {
+    "x": "condition",
+    "y": "pERK",
+    "err": "sd",
+    "n": "n",
+    "unit": "fold vs vehicle",
+    "xlabel": "Condition",
+    "ylabel": "pERK/ERK (fold vs vehicle)",
+    "rows": [
+     {
+      "condition": "Vehicle",
+      "pERK": 1.0,
+      "sd": 0.08,
+      "n": 3
+     },
+     {
+      "condition": "Erlotinib",
+      "pERK": 0.42,
+      "sd": 0.07,
+      "n": 3
+     },
+     {
+      "condition": "Selumetinib",
+      "pERK": 0.11,
+      "sd": 0.03,
+      "n": 3
+     }
+    ],
+    "significance": [
+     {
+      "from": "Vehicle",
+      "to": "Erlotinib",
+      "label": "**"
+     },
+     {
+      "from": "Vehicle",
+      "to": "Selumetinib",
+      "label": "***"
+     }
+    ]
+   },
+   "source": "E8"
+  }
+ ],
+ "legend": {
+  "title": "",
+  "items": [
+   {
+    "key": "activate",
+    "label": "activation / flow",
+    "swatch": "arrow",
+    "color": "#0072B2"
+   },
+   {
+    "key": "inhibit",
+    "label": "inhibition",
+    "swatch": "tbar",
+    "color": "#D55E00"
+   },
+   {
+    "key": "bind",
+    "label": "binding",
+    "swatch": "line",
+    "color": "#009E73"
+   },
+   {
+    "key": "indirect",
+    "label": "indirect / multi-step",
+    "swatch": "dash",
+    "color": "#8C564B"
+   }
+  ]
+ },
+ "evidence": {
+  "E1": {
+   "source": "S1",
+   "locator": "p.1, line 1",
+   "quote": "EGF binds EGFR at the plasma membrane."
+  },
+  "E2": {
+   "source": "S1",
+   "locator": "p.1, line 2",
+   "quote": "Ligand-bound EGFR recruits GRB2."
+  },
+  "E3": {
+   "source": "S1",
+   "locator": "p.1, line 3",
+   "quote": "GRB2 recruits SOS, which activates RAS."
+  },
+  "E4": {
+   "source": "S1",
+   "locator": "p.1, line 4",
+   "quote": "RAS-GTP activates ERK through RAF and MEK."
+  },
+  "E5": {
+   "source": "S1",
+   "locator": "p.1, line 5",
+   "quote": "Erlotinib inhibits EGFR kinase activity."
+  },
+  "E6": {
+   "source": "S1",
+   "locator": "p.1, line 6",
+   "quote": "Selumetinib inhibits MEK and thereby ERK phosphorylation."
+  },
+  "E7": {
+   "source": "S1",
+   "locator": "p.1, line 7",
+   "quote": "Active ERK inhibits SOS through negative feedback."
+  },
+  "E8": {
+   "source": "S1",
+   "locator": "example table row 1-3",
+   "quote": "pERK/ERK fold change: vehicle 1.00, erlotinib 0.42, selumetinib 0.11"
+  }
+ },
+ "sources": [
+  {
+   "id": "S1",
+   "path": "examples/example_source.txt",
+   "kind": "text",
+   "note": "synthetic example text"
+  },
+  {
+   "id": "S2",
+   "path": "examples/example_data.csv",
+   "kind": "table",
+   "note": "synthetic example data"
+  }
+ ],
+ "uncertainty": [
+  "Example content; the EGFR–ERK topology is textbook, the fold-change values are illustrative."
+ ],
+ "changes": [
+  {
+   "at": "build",
+   "what": "initial example spec"
+  }
+ ]
+}

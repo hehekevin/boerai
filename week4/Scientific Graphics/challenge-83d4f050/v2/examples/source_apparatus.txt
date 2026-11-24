@@ -1,0 +1,6 @@
+Gas flow is set by mass-flow controllers and liquid flow by an HPLC pump.
+Feeds are mixed before entering the reactor.
+The tubular reactor is held at 350 °C.
+Products pass through a cold trap at -20 °C.
+Analysis is performed on a GC-MS via a sampling loop.
+Each run comprised flush (0.5 h), heat-up (1 h), hold (4 h) and cool-down (1.5 h) stages.

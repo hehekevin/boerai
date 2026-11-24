@@ -1,0 +1,12 @@
+EGF binds EGFR at the plasma membrane.
+Ligand-bound EGFR recruits GRB2.
+GRB2 recruits SOS, which activates RAS.
+RAS-GTP activates ERK through RAF and MEK.
+Erlotinib inhibits EGFR kinase activity.
+Selumetinib inhibits MEK and thereby ERK phosphorylation.
+Active ERK inhibits SOS through negative feedback.
+The tubular reactor is held at 350 °C.
+Products pass through a cold trap at -20 °C.
+Each run comprised flush (0.5 h), heat-up (1 h), hold (4 h) and cool-down (1.5 h) stages.
+The actuator drives the mechanical load with 4 ms latency; the controller updates every 10 ms.
+pERK/ERK fold change: vehicle 1.00, erlotinib 0.42, selumetinib 0.11

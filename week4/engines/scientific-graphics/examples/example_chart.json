@@ -1,0 +1,270 @@
+{
+ "case_id": "example-chart",
+ "figure_id": "example_chart",
+ "figure_kind": "data_chart",
+ "title": "Expression, kinetics, heatmap and distribution (example)",
+ "canvas": {
+  "preset": "nature_double",
+  "dpi": 600
+ },
+ "panels": [
+  {
+   "id": "A",
+   "title": "Expression"
+  },
+  {
+   "id": "B",
+   "title": "Kinetics"
+  },
+  {
+   "id": "C",
+   "title": "Heatmap"
+  },
+  {
+   "id": "D",
+   "title": "Distribution"
+  }
+ ],
+ "caption": "示例：(A) 相对表达量（mean ± s.d., n = 3）。(B) 诱导后时程（mean ± s.d.）。(C) 四基因 z-score 热图。(D) 两组分布。数值为示例，非正式案例结果。",
+ "charts": [
+  {
+   "id": "c1",
+   "panel": "A",
+   "type": "bar",
+   "data": {
+    "x": "genotype",
+    "y": "expr",
+    "err": "sd",
+    "n": "n",
+    "unit": "fold",
+    "xlabel": "Genotype",
+    "ylabel": "Relative expression (fold)",
+    "rows": [
+     {
+      "genotype": "WT",
+      "expr": 1.0,
+      "sd": 0.1,
+      "n": 3
+     },
+     {
+      "genotype": "het",
+      "expr": 0.6,
+      "sd": 0.08,
+      "n": 3
+     },
+     {
+      "genotype": "ko",
+      "expr": 0.15,
+      "sd": 0.04,
+      "n": 3
+     }
+    ],
+    "significance": [
+     {
+      "from": "WT",
+      "to": "ko",
+      "label": "***"
+     }
+    ]
+   },
+   "source": "E1"
+  },
+  {
+   "id": "c2",
+   "panel": "B",
+   "type": "line",
+   "data": {
+    "x": "time",
+    "y": "signal",
+    "unit": "a.u.",
+    "xlabel": "Time (min)",
+    "ylabel": "Signal (a.u.)",
+    "series": [
+     {
+      "name": "WT",
+      "values": [
+       0.1,
+       0.3,
+       0.8,
+       1.0,
+       0.9
+      ],
+      "err": [
+       0.02,
+       0.05,
+       0.08,
+       0.1,
+       0.09
+      ]
+     },
+     {
+      "name": "mut",
+      "values": [
+       0.05,
+       0.08,
+       0.12,
+       0.15,
+       0.12
+      ],
+      "err": [
+       0.01,
+       0.02,
+       0.03,
+       0.03,
+       0.02
+      ]
+     }
+    ],
+    "categories": [
+     "0",
+     "5",
+     "10",
+     "20",
+     "40"
+    ]
+   },
+   "source": "E2"
+  },
+  {
+   "id": "c3",
+   "panel": "C",
+   "type": "heatmap",
+   "data": {
+    "matrix": [
+     [
+      1.2,
+      0.3,
+      -0.8,
+      -1.1
+     ],
+     [
+      0.9,
+      0.1,
+      -0.5,
+      -0.9
+     ],
+     [
+      -0.4,
+      0.6,
+      0.8,
+      0.2
+     ],
+     [
+      -1.0,
+      -0.7,
+      0.4,
+      1.3
+     ]
+    ],
+    "row_labels": [
+     "GeneA",
+     "GeneB",
+     "GeneC",
+     "GeneD"
+    ],
+    "col_labels": [
+     "0 h",
+     "6 h",
+     "12 h",
+     "24 h"
+    ],
+    "colorbar": true,
+    "colorbar_label": "z-score",
+    "cmap": "viridis"
+   },
+   "source": "E3"
+  },
+  {
+   "id": "c4",
+   "panel": "D",
+   "type": "box",
+   "data": {
+    "x": "group",
+    "y": "value",
+    "ylabel": "Body length (mm)",
+    "xlabel": "Group",
+    "rows": [
+     {
+      "group": "WT",
+      "value": 10.1
+     },
+     {
+      "group": "WT",
+      "value": 10.5
+     },
+     {
+      "group": "WT",
+      "value": 9.8
+     },
+     {
+      "group": "WT",
+      "value": 10.9
+     },
+     {
+      "group": "WT",
+      "value": 10.2
+     },
+     {
+      "group": "WT",
+      "value": 11.0
+     },
+     {
+      "group": "mut",
+      "value": 8.1
+     },
+     {
+      "group": "mut",
+      "value": 8.5
+     },
+     {
+      "group": "mut",
+      "value": 7.9
+     },
+     {
+      "group": "mut",
+      "value": 8.8
+     },
+     {
+      "group": "mut",
+      "value": 8.2
+     },
+     {
+      "group": "mut",
+      "value": 7.6
+     }
+    ]
+   },
+   "source": "E4"
+  }
+ ],
+ "evidence": {
+  "E1": {
+   "source": "S1",
+   "locator": "example table",
+   "quote": "Relative expression was 1.0 in WT, 0.6 in het and 0.15 in ko"
+  },
+  "E2": {
+   "source": "S1",
+   "locator": "Fig 1b",
+   "quote": "Signal peaked at 20 min."
+  },
+  "E3": {
+   "source": "S1",
+   "locator": "Fig 1c",
+   "quote": "z-score across four genes."
+  },
+  "E4": {
+   "source": "S1",
+   "locator": "Fig 1d",
+   "quote": "Body length was lower in mutants."
+  }
+ },
+ "sources": [
+  {
+   "id": "S1",
+   "path": "examples/source_chart.txt",
+   "kind": "text",
+   "note": "synthetic example"
+  }
+ ]
+}

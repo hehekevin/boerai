@@ -1,0 +1,206 @@
+{
+ "case_id": "example-graphical-abstract",
+ "figure_id": "example_graphical_abstract",
+ "figure_kind": "graphical_abstract",
+ "title": "A membrane sensor converts osmotic stress into a transcriptional response (example)",
+ "canvas": {
+  "preset": "ga_landscape",
+  "dpi": 600
+ },
+ "caption": "示例：问题→方法→结果→结论自左向右；颜色编码渗透条件（等渗=蓝，高渗=橙）。柱高为均值，误差线为 s.d.（n = 3）。内容为示例，非正式案例结果。",
+ "panels": [
+  {
+   "id": "A",
+   "title": "Problem"
+  },
+  {
+   "id": "B",
+   "title": "Approach"
+  },
+  {
+   "id": "C",
+   "title": "Result"
+  },
+  {
+   "id": "D",
+   "title": "Conclusion"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "stress",
+   "label": "Hyper-osmotic stress",
+   "class": "condition",
+   "panel": "A",
+   "source": "E1"
+  },
+  {
+   "id": "cell",
+   "label": "Cell",
+   "class": "cell",
+   "shape": "cell",
+   "panel": "A",
+   "source": "E2"
+  },
+  {
+   "id": "sensor",
+   "label": "Membrane sensor",
+   "class": "receptor",
+   "shape": "membrane_receptor",
+   "panel": "B",
+   "source": "E3"
+  },
+  {
+   "id": "tf",
+   "label": "Transcription factor",
+   "class": "protein",
+   "panel": "B",
+   "source": "E4"
+  },
+  {
+   "id": "genes",
+   "label": "Target genes",
+   "class": "gene",
+   "panel": "C",
+   "source": "E5"
+  },
+  {
+   "id": "survival",
+   "label": "Survival",
+   "class": "phenotype",
+   "panel": "D",
+   "source": "E6"
+  }
+ ],
+ "edges": [
+  {
+   "id": "g1",
+   "from": "stress",
+   "to": "cell",
+   "type": "activate",
+   "panel": "A",
+   "source": "E1"
+  },
+  {
+   "id": "g2",
+   "from": "cell",
+   "to": "sensor",
+   "type": "sequence",
+   "panel": "A",
+   "source": "E2"
+  },
+  {
+   "id": "g3",
+   "from": "sensor",
+   "to": "tf",
+   "type": "activate",
+   "panel": "B",
+   "source": "E3"
+  },
+  {
+   "id": "g4",
+   "from": "tf",
+   "to": "genes",
+   "type": "activate",
+   "panel": "C",
+   "source": "E4"
+  },
+  {
+   "id": "g5",
+   "from": "genes",
+   "to": "survival",
+   "type": "promote",
+   "panel": "D",
+   "source": "E5"
+  }
+ ],
+ "charts": [
+  {
+   "id": "c1",
+   "panel": "C",
+   "type": "bar",
+   "data": {
+    "x": "condition",
+    "y": "expr",
+    "err": "sd",
+    "unit": "fold",
+    "xlabel": "Condition",
+    "ylabel": "Expression (fold)",
+    "rows": [
+     {
+      "condition": "Iso",
+      "expr": 1.0,
+      "sd": 0.1
+     },
+     {
+      "condition": "Hyper",
+      "expr": 3.2,
+      "sd": 0.3
+     }
+    ]
+   },
+   "source": "E7"
+  }
+ ],
+ "legend": {
+  "items": [
+   {
+    "key": "iso",
+    "label": "iso-osmotic",
+    "swatch": "color",
+    "color": "#0072B2"
+   },
+   {
+    "key": "hyper",
+    "label": "hyper-osmotic",
+    "swatch": "color",
+    "color": "#D55E00"
+   }
+  ]
+ },
+ "evidence": {
+  "E1": {
+   "source": "S1",
+   "locator": "p.1",
+   "quote": "Hyper-osmotic stress activates the membrane sensor."
+  },
+  "E2": {
+   "source": "S1",
+   "locator": "p.1",
+   "quote": "The sensor is located in the plasma membrane of the cell."
+  },
+  "E3": {
+   "source": "S1",
+   "locator": "p.2",
+   "quote": "Sensor activation releases the transcription factor."
+  },
+  "E4": {
+   "source": "S1",
+   "locator": "p.2",
+   "quote": "The transcription factor induces its target genes."
+  },
+  "E5": {
+   "source": "S1",
+   "locator": "p.3",
+   "quote": "Target gene expression increases 3.2-fold."
+  },
+  "E6": {
+   "source": "S1",
+   "locator": "p.3",
+   "quote": "Induction of the target genes promotes survival."
+  },
+  "E7": {
+   "source": "S2",
+   "locator": "table 1",
+   "quote": "Expression: iso 1.0, hyper 3.2"
+  }
+ },
+ "sources": [
+  {
+   "id": "S1",
+   "path": "examples/source_graphical_abstract.txt",
+   "kind": "text",
+   "note": "synthetic example"
+  }
+ ]
+}

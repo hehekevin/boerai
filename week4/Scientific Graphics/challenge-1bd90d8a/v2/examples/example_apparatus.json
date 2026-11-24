@@ -1,0 +1,184 @@
+{
+ "case_id": "example-apparatus",
+ "figure_id": "example_apparatus",
+ "figure_kind": "apparatus_route",
+ "title": "Flow reactor and analytical train (example)",
+ "canvas": {
+  "preset": "nature_double",
+  "dpi": 600
+ },
+ "caption": "示例：(A) 反应装置，气路与液路经混合器进入 350 °C 管式反应器，产物经 −20 °C 冷阱后进 GC–MS。(B) 单次运行的四阶段与标称时长（h）。内容为示例，非正式案例结果。",
+ "panels": [
+  {
+   "id": "A",
+   "title": "Apparatus"
+  },
+  {
+   "id": "B",
+   "title": "Procedure"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "mfc",
+   "label": "Mass-flow controllers",
+   "class": "instrument",
+   "panel": "A",
+   "order": 1,
+   "source": "E1"
+  },
+  {
+   "id": "pump",
+   "label": "HPLC pump",
+   "class": "instrument",
+   "panel": "A",
+   "order": 2,
+   "source": "E1"
+  },
+  {
+   "id": "mix",
+   "label": "Mixer",
+   "class": "component",
+   "panel": "A",
+   "order": 3,
+   "source": "E2"
+  },
+  {
+   "id": "reactor",
+   "label": "Tubular reactor 350 °C",
+   "class": "instrument",
+   "panel": "A",
+   "order": 4,
+   "source": "E3",
+   "emphasis": "key"
+  },
+  {
+   "id": "trap",
+   "label": "Cold trap −20 °C",
+   "class": "instrument",
+   "panel": "A",
+   "order": 5,
+   "source": "E4"
+  },
+  {
+   "id": "gc",
+   "label": "GC–MS",
+   "class": "instrument",
+   "panel": "A",
+   "order": 6,
+   "source": "E5"
+  }
+ ],
+ "edges": [
+  {
+   "id": "a1",
+   "from": "mfc",
+   "to": "mix",
+   "type": "flow",
+   "source": "E1"
+  },
+  {
+   "id": "a2",
+   "from": "pump",
+   "to": "mix",
+   "type": "flow",
+   "source": "E1"
+  },
+  {
+   "id": "a3",
+   "from": "mix",
+   "to": "reactor",
+   "type": "flow",
+   "source": "E2"
+  },
+  {
+   "id": "a4",
+   "from": "reactor",
+   "to": "trap",
+   "type": "flow",
+   "source": "E4"
+  },
+  {
+   "id": "a5",
+   "from": "trap",
+   "to": "gc",
+   "type": "flow",
+   "label": "sampling loop",
+   "source": "E5"
+  }
+ ],
+ "charts": [
+  {
+   "id": "c1",
+   "panel": "B",
+   "type": "bar",
+   "data": {
+    "x": "stage",
+    "y": "hours",
+    "unit": "h",
+    "xlabel": "Stage",
+    "ylabel": "Duration (h)",
+    "value_labels": true,
+    "rows": [
+     {
+      "stage": "Flush",
+      "hours": 0.5
+     },
+     {
+      "stage": "Heat-up",
+      "hours": 1.0
+     },
+     {
+      "stage": "Hold",
+      "hours": 4.0
+     },
+     {
+      "stage": "Cool-down",
+      "hours": 1.5
+     }
+    ]
+   },
+   "source": "E6"
+  }
+ ],
+ "evidence": {
+  "E1": {
+   "source": "S1",
+   "locator": "p.4",
+   "quote": "Gas flow is set by mass-flow controllers and liquid flow by an HPLC pump."
+  },
+  "E2": {
+   "source": "S1",
+   "locator": "p.4",
+   "quote": "Feeds are mixed before entering the reactor."
+  },
+  "E3": {
+   "source": "S1",
+   "locator": "p.4",
+   "quote": "The tubular reactor is held at 350 °C."
+  },
+  "E4": {
+   "source": "S1",
+   "locator": "p.5",
+   "quote": "Products pass through a cold trap at −20 °C."
+  },
+  "E5": {
+   "source": "S1",
+   "locator": "p.5",
+   "quote": "Analysis is performed on a GC-MS via a sampling loop."
+  },
+  "E6": {
+   "source": "S1",
+   "locator": "p.5",
+   "quote": "Each run comprised flush, heat-up, hold and cool-down stages."
+  }
+ },
+ "sources": [
+  {
+   "id": "S1",
+   "path": "examples/source_apparatus.txt",
+   "kind": "text",
+   "note": "synthetic example"
+  }
+ ]
+}
