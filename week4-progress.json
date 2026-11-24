@@ -255,12 +255,12 @@
  "challenge-139745c7": {
   "track": "literature-search",
   "title": "科研文件智能检索",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "file_search 四子命令自测通过（find排序/locate章节回链正确/filter硬约束/versions哈希识别）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-666fefb0": {
