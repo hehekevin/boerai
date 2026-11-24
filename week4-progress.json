@@ -79,12 +79,12 @@
  "challenge-5c918ff0": {
   "track": "literature-search",
   "title": "多数据库联合检索",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "multidb_engine --demo 自测通过（合并/冲突/缺失处理正确）；已知限制：大小写差异误计冲突（规则文档已声明）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-802a7115": {
