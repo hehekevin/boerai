@@ -629,12 +629,12 @@
  "challenge-95061011": {
   "track": "literature-reading",
   "title": "多文档比较与整合",
-  "brief_read": false,
-  "spec_designed": false,
-  "skill_built": false,
-  "self_tested": false,
-  "self_test_report": "",
-  "ready_to_submit": false,
+  "brief_read": true,
+  "spec_designed": true,
+  "skill_built": true,
+  "self_tested": true,
+  "self_test_report": "compare_matrix 三子命令自测通过（矩阵/可比性subset判定/冲突归因候选）",
+  "ready_to_submit": true,
   "submitted_attempt": ""
  },
  "challenge-98e5a474": {
