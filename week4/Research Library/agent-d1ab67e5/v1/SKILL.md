@@ -1,58 +1,43 @@
 ---
-name: research-library-forge
-description: 科研资料管理工具，支持文献整理、知识库构建、资料检索
-version: 1.0.0
-tags: [research-library, week4, agent-d1ab67e5]
+name: sw-agent-forge
+description: 科研软件操作Agent：状态步骤序列（前置条件+完成判据+状态快照）、任务到参数映射（单位换算/默认值陷阱/配置版本/可回指）、权限边界（不足即提示替代不重试）、导入导出验证（重开+复算）。
 ---
 
-# research-library-forge
+# sw-agent-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **态管理**：导入/设置/运行/导出/检查组织成有前置条件+完成判据的步骤序列；每步开始/结束记录软件状态。
+2. **正确性**：任务要求→软件参数映射；单位换算留公式、默认值陷阱显式、配置版本差异记录、参数可回指可核对（sw_agent --params）。
+3. **号边界**：许可证/账号/写权限/插件授权前置检查；不足→明确提示+可行替代，**不反复重试**（sw_agent --gates）。
+4. **与导出**：输入正确读取/中间结果正确挂接/导出格式字段符合下游；导出文件可重新打开和复算（sw_agent --iocheck）。
+5. **脚本先行**。
 
-科研资料管理工具，支持文献整理、知识库构建、资料检索
-
-## 核心能力
-
-- 文献管理、知识组织、标签分类、快速检索
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: agent-d1ab67e5
-- 题目: 科研软件操作 Agent
-- 赛道: Research Library
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 步骤规划（0请求）：`python scripts/sw_agent.py --plan steps.json`
+### 阶段2 参数映射（0请求）：`python scripts/sw_agent.py --params task.json params.json`
+### 阶段3 权限门（0请求）：`python scripts/sw_agent.py --gates env.json`
+### 阶段4 导入导出验证（0请求）：`python scripts/sw_agent.py --iocheck io.json`
+### 阶段5 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-library-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/sw-agent-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 权限不足 | 提示+替代，不重试 |
+| 参数单位不符 | 换算公式留痕 |
+| 导出无法重开 | FAIL 定位导出步骤 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：sw_agent.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Library赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

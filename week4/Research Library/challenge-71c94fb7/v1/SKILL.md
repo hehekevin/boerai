@@ -1,58 +1,42 @@
 ---
-name: research-library-forge
-description: 科研资料管理工具，支持文献整理、知识库构建、资料检索
-version: 1.0.0
-tags: [research-library, week4, challenge-71c94fb7]
+name: collection-migrate-forge
+description: 科研资料收集与迁移：多源稳定采集（分页/滚动/登录态失效/下载中断）、字段映射表（同义命名/单位归一/多源合并/缺失标注）、迁移前后完整性校验（记录数/字段数/关键值/附件清单差异报告：预期vs缺陷）。
 ---
 
-# research-library-forge
+# collection-migrate-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **料采集**：浏览器/数据库检索结果/本地下载目录/文献管理软件/内部系统稳定取回记录与附件；分页/滚动加载/登录态失效/下载中断处理（increment_tracker 幂等重试逻辑）。
+2. **段映射**：来源→目标字段映射表；同义命名/单位与格式归一/多来源字段合并；缺失与不可映射项标注（multidb_engine FIELD_MAP + clean_engine）。
+3. **性校验**：迁移前后比对记录数/字段数/关键字段取值/附件清单；差异报告分"预期差异"与"缺陷"——说明判定依据（sw_agent --iocheck 完整性逻辑）。
+4. **脚本先行**。
 
-科研资料管理工具，支持文献整理、知识库构建、资料检索
-
-## 核心能力
-
-- 文献管理、知识组织、标签分类、快速检索
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-71c94fb7
-- 题目: 科研资料收集与迁移
-- 赛道: Research Library
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 采集（0请求+失败重试审计）：`python scripts/increment_tracker.py --retrylog events.json`
+### 阶段2 字段映射（0请求）：`python scripts/multidb_engine.py --merge`
+### 阶段3 完整性校验（0请求）：`python scripts/sw_agent.py --iocheck io.json` + 前后计数对账
+### 阶段4 差异报告（1请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-library-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/collection-migrate-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 登录态失效 | 提示重登+已获数据保留 |
+| 下载中断 | 幂等重试（不产生二次） |
+| 不可映射字段 | 清单标注 |
+| 差异归因 | 预期/缺陷分开说明 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：multidb_engine.py, clean_engine.py, increment_tracker.py, sw_agent.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Library赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

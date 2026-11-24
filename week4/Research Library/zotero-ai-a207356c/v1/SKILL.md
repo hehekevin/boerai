@@ -1,58 +1,39 @@
 ---
-name: research-library-forge
-description: 科研资料管理工具，支持文献整理、知识库构建、资料检索
-version: 1.0.0
-tags: [research-library, week4, zotero-ai-a207356c]
+name: zotero-plugin-forge
+description: Zotero AI 插件：多来源导入（PDF/网页快照/题录文件；附件与条目绑定/重复条目/集合归属）、字段补全（首页/DOI解析/已有题录；优先级+覆盖规则+来源标注）。
 ---
 
-# research-library-forge
+# zotero-plugin-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **献导入**：PDF/网页快照/题录文件多来源入库；附件与条目脱节修复；重复条目去重（classify --versions 键策略）；集合归属校验。
+2. **据补全**：原文首页/DOI解析/已有题录补齐字段；字段优先级显式（DOI解析>首页>已有）、覆盖规则（不覆盖人工已确认值）、来源标注（multidb_engine 字段映射+provenance）。
+3. **脚本先行**。
 
-科研资料管理工具，支持文献整理、知识库构建、资料检索
-
-## 核心能力
-
-- 文献管理、知识组织、标签分类、快速检索
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: zotero-ai-a207356c
-- 题目: Zotero AI 插件
-- 赛道: Research Library
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 导入去重（0请求）：`python scripts/classify_engine.py --versions records.json`
+### 阶段2 字段补全（0请求）：`python scripts/multidb_engine.py --merge normalized.json`
+### 阶段3 成文（1-2请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-library-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/zotero-plugin-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 附件脱节 | 附件-条目绑定清单 |
+| 字段冲突 | 优先级+来源标注 |
+| 重复条目 | 合并保留依据 |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：classify_engine.py, multidb_engine.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Library赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

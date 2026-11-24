@@ -1,58 +1,44 @@
 ---
-name: research-library-forge
-description: 科研资料管理工具，支持文献整理、知识库构建、资料检索
-version: 1.0.0
-tags: [research-library, week4, challenge-2bfd9194]
+name: lib-manager-forge
+description: 科研资料库与文件管理：批量上传（哈希一致/断点续传/特殊字符/压缩包展开）、目录组织（约定树/归位/去重/空目录清理/命名规范）、元数据维护（多来源抽取带出处）、版本管理（哈希+修改时间重建版本链）。
 ---
 
-# research-library-forge
+# lib-manager-forge
 
-## 功能概述
+## 核心原则（不可违反）
+1. **件上传**：批量/断点续传/大文件/特殊字符/压缩包展开；入库文件与源文件哈希一致（sha256逐个核对）。
+2. **录组织**：按项目/年份/数据类型约定生成目录树；归位/去重/空目录清理/命名规范化（classify_engine --rename）。
+3. **据维护**：从文件名/内容/伴随表格/人工补录抽取字段形成结构化清单，字段出处保留（clean_engine --normalize trace）。
+4. **本管理**：内容哈希+修改时间重建版本链；明确谁替代谁、差异在哪——归档不删除（classify_engine --versions）。
+5. **脚本先行**。
 
-科研资料管理工具，支持文献整理、知识库构建、资料检索
-
-## 核心能力
-
-- 文献管理、知识组织、标签分类、快速检索
-- 智能分析与建议
-- 结构化输出
-- 可追溯的工作流程
-
-## 输入要求
-
-- 题目ID: challenge-2bfd9194
-- 题目: 科研资料库与文件管理
-- 赛道: Research Library
+## 运行环境约定
+输入 `/input/case.json`；输出 `/app/output`；引擎以 `<SKILL_DIR>` 指代。
 
 ## 工作流程
+### 阶段0 盘点（1请求）
+### 阶段1 入库校验（0请求）：哈希核对+压缩包展开清单
+### 阶段2 目录组织（0请求）：`python scripts/classify_engine.py --classify/--rename`
+### 阶段3 元数据维护（0请求）：`python scripts/clean_engine.py --normalize`
+### 阶段4 版本链（0请求）：`python scripts/classify_engine.py --versions`
+### 阶段5 成文（1请求）
 
-1. **需求分析**: 理解题目要求和评分标准
-2. **方案设计**: 设计解决方案和实施策略
-3. **执行实施**: 按照方案逐步执行
-4. **质量检查**: 验证输出质量和完整性
-5. **结果交付**: 生成最终交付物
-
-## 输出规范
-
-- 结构化、可追溯
-- 符合学术规范
-- 包含必要的引用和来源
-- 提供清晰的说明文档
-
-## 使用示例
-
+### 交付（0请求）
+组装 `/app/output/result.json`（合并 output_contract + case_id）：
 ```bash
-# 调用示例
-python3 research-library-forge.py --input data.json --output result.md
+python <SKILL_DIR>/scripts/validate_result.py --case /input/case.json --result /app/output/result.json --manuscript /app/output/lib-manager-forge.md --require "原则关键词1,原则关键词2,异常关键词" --names "p1,p2,p3"
 ```
 
-## 注意事项
+## 异常处置速查
+| 情形 | 处置 |
+|-|-|
+| 哈希不一致 | 上传失败清单重传 |
+| 特殊字符文件名 | 规范化+原名保留记录 |
+| 版本冲突 | 链上标注替代关系 |
+| 空目录 | 清理清单（不删资料文件） |
 
-- 确保输入数据的完整性
-- 遵循学术诚信原则
-- 保留所有中间步骤的记录
-- 输出结果需要人工审核
+## 资源清单
+scripts：classify_engine.py, clean_engine.py, file_search.py + inspect_case + validate_result。
 
-## 版本历史
-
-- v1.0.0: 初始版本，支持Research Library赛道基础功能
+## 预算红线
+64 模型请求/900秒。确定性子命令恒为0请求。过60%时间冻结 status=partial。

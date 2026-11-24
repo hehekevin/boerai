@@ -1,34 +1,9 @@
-# research-library-forge
+# library-general-forge — 使用与方法说明
 
-科研资料管理工具，支持文献整理、知识库构建、资料检索
+**资料管理领域总课题：按case路由（入库管理/知识库问答/软件操作/插件/迁移五子场景），组合引擎全链路**
 
-## 题目信息
+## 调用
+见 SKILL.md。引擎已自测。
 
-- **题目ID**: challenge-00e37955
-- **题目**: 资料管理领域总课题
-- **赛道**: Research Library
-- **版本**: v1
-
-## 快速开始
-
-1. 阅读 SKILL.md 了解功能和使用方法
-2. 准备输入数据
-3. 运行工具生成结果
-4. 审核输出质量
-
-## 文件说明
-
-- `SKILL.md`: 详细的技能说明文档
-- `README.md`: 本说明文件
-- `examples/`: 示例文件目录
-- `templates/`: 模板文件目录
-- `references/`: 参考资料目录
-
-## 依赖要求
-
-- Python 3.8+
-- 相关依赖包见 requirements.txt
-
-## 许可证
-
-MIT License
+## 维护
+版本 1.0.0（2026-11），作者 dafeiyu。
