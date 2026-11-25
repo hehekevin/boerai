@@ -525,7 +525,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105229"
+  "submitted_attempt": "105229",
+  "last_score": 68
  },
  "challenge-0999879e": {
   "track": "academic-review",
@@ -569,7 +570,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105233"
+  "submitted_attempt": "105233",
+  "last_score": 61.33
  },
  "ppt-710fbc72": {
   "track": "academic-writing",
@@ -580,7 +582,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105234"
+  "submitted_attempt": "105234",
+  "last_score": 55.67
  },
  "challenge-8021aacb": {
   "track": "academic-writing",
@@ -591,7 +594,8 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": "101463"
+  "submitted_attempt": "101463",
+  "last_score": 64.33
  },
  "challenge-f4bca185": {
   "track": "literature-reading",
@@ -624,7 +628,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105238"
+  "submitted_attempt": "105238",
+  "last_score": 63.67
  },
  "challenge-95061011": {
   "track": "literature-reading",
@@ -646,7 +651,8 @@
   "self_tested": true,
   "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
   "ready_to_submit": true,
-  "submitted_attempt": "101464"
+  "submitted_attempt": "101464",
+  "last_score": 67
  },
  "graphical-abstract-7030fff2": {
   "track": "scientific-graphics",
@@ -679,7 +685,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105242"
+  "submitted_attempt": "105242",
+  "last_score": 68
  },
  "challenge-38e0cc33": {
   "track": "scientific-graphics",
@@ -712,7 +719,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105246"
+  "submitted_attempt": "105246",
+  "last_score": 52
  },
  "challenge-96263d10": {
   "track": "academic-writing",
@@ -723,7 +731,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105247"
+  "submitted_attempt": "105247",
+  "last_score": 52.33
  },
  "challenge-e5e3be30": {
   "track": "literature-reading",
@@ -756,7 +765,8 @@
   "self_tested": true,
   "self_test_report": "引擎子命令本地自测通过",
   "ready_to_submit": true,
-  "submitted_attempt": "105250"
+  "submitted_attempt": "105250",
+  "last_score": 55
  },
  "challenge-2815a418": {
   "track": "academic-review",
@@ -765,9 +775,10 @@
   "spec_designed": true,
   "skill_built": true,
   "self_tested": true,
-  "self_test_report": "完整Skill（第3周验证资产复用）+已提交待评分/复验通过",
+  "self_test_report": "重建SKILL.md后重新提交（attempt 108547）；此前101466因SKILL.md空文件得0分",
   "ready_to_submit": true,
-  "submitted_attempt": "101466"
+  "submitted_attempt": "108547",
+  "last_score": 0
  },
  "challenge-105b70ee": {
   "track": "literature-reading",
